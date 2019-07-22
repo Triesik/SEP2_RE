@@ -12,6 +12,8 @@ module SEP2_RE {
 
     exports main to javafx.graphics;
     exports controller.admin to javafx.fxml;
+    exports view.admin.mainAdmin to javafx.fxml;
+    exports view.admin.addUser to javafx.fxml;
 
     opens main to javafx.fxml;
 }
