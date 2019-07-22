@@ -31,8 +31,6 @@ public class addUserGUI implements addUserView {
     }
 
     public void addUserPressed(ActionEvent actionEvent) {
-        try{
             addUserController.addUserBtnPressed();
-        }
     }
 }
