@@ -44,6 +44,16 @@ public class addUserGUI implements addUserView {
         return tickMakeAsAdmin.isSelected();
     }
 
+    public void clearInput() {
+        txtCPR.setText("");
+        txtFirstName.setText("");
+        txtLastName.setText("");
+        txtMobileNumber.setText("");
+        txtEmail.setText("");
+        txtPassword.setText("");
+        tickMakeAsAdmin.setSelected(false);
+    }
+
     public void addUserPressed(ActionEvent actionEvent) {
         addUserController.addUserBtnPressed();
     }

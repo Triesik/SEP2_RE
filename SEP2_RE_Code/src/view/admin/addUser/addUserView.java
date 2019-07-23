@@ -10,5 +10,7 @@ public interface addUserView {
 
     public boolean getCheckedValue();
 
+    public void clearInput();
+
 
 }

@@ -16,6 +16,7 @@ public class addUserController {
          System.out.println(data[i]);
       }
       System.out.println("Is an admin: " + view.getCheckedValue());
+      view.clearInput();
    }
 
 
