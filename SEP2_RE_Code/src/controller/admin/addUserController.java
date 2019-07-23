@@ -15,6 +15,7 @@ public class addUserController {
       for(int i = 0; i < data.length; i++) {
          System.out.println(data[i]);
       }
+      System.out.println("Is an admin: " + view.getCheckedValue());
    }
 
 

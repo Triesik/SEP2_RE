@@ -8,5 +8,7 @@ public interface addUserView {
 
     public String[] getTextFieldValues();
 
+    public boolean getCheckedValue();
+
 
 }

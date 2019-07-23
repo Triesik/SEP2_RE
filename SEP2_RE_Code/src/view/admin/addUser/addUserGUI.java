@@ -1,10 +1,12 @@
 package view.admin.addUser;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import controller.admin.addUserController;
 
 public class addUserGUI implements addUserView {
+    public CheckBox tickMakeAsAdmin;
     private addUserController addUserController;
     public TextField txtCPR;
     public TextField txtFirstName;
@@ -36,6 +38,10 @@ public class addUserGUI implements addUserView {
         String password = txtPassword.getText();
 
         return new String[]{CPR, firstName, lastName, mobileNumber, email, password};
+    }
+
+    public boolean getCheckedValue() {
+        return tickMakeAsAdmin.isSelected();
     }
 
     public void addUserPressed(ActionEvent actionEvent) {
