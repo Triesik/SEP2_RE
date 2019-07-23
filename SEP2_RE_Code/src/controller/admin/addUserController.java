@@ -11,6 +11,10 @@ public class addUserController {
 
    public void addUserBtnPressed() {
       System.out.println("Button pressed from controller");
+      String[] data = view.getTextFieldValues();
+      for(int i = 0; i < data.length; i++) {
+         System.out.println(data[i]);
+      }
    }
 
 
