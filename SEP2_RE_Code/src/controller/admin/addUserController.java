@@ -9,6 +9,7 @@ public class addUserController {
       this.view = view;
    }
 
+   // Controller action for when the add button is pressed
    public void addUserBtnPressed() {
       System.out.println("Button pressed from controller");
       String[] data = view.getTextFieldValues();

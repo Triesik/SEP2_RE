@@ -16,6 +16,8 @@ public class addUserGUI implements addUserView {
     public TextField txtPassword;
 
     public addUserGUI(){
+        // For future reference, client should probably be set here or in mainAdminGUI
+        // Instantiates a controller when the fxml document is first loaded and then prints out the instance of controller in terminal
         this.addUserController = new addUserController(this);
         System.out.println("Controller from constructor " + addUserController);
     }
@@ -28,6 +30,7 @@ public class addUserGUI implements addUserView {
     }
 
 
+    // Gets the values of the text boxes from the GUI
     @Override
     public String[] getTextFieldValues() {
         String CPR = txtCPR.getText();
@@ -40,10 +43,12 @@ public class addUserGUI implements addUserView {
         return new String[]{CPR, firstName, lastName, mobileNumber, email, password};
     }
 
+    // Gets whether or not the admin checkbox is ticked
     public boolean getCheckedValue() {
         return tickMakeAsAdmin.isSelected();
     }
 
+    // Clears inputs
     public void clearInput() {
         txtCPR.setText("");
         txtFirstName.setText("");
@@ -54,6 +59,7 @@ public class addUserGUI implements addUserView {
         tickMakeAsAdmin.setSelected(false);
     }
 
+    // Event when add user button is pressed
     public void addUserPressed(ActionEvent actionEvent) {
         addUserController.addUserBtnPressed();
     }
