@@ -10,7 +10,7 @@ public class addUserController {
    }
 
    public void addUserBtnPressed() {
-
+      System.out.println("Button pressed");
    }
 
 

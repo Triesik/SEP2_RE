@@ -13,10 +13,12 @@ public class addUserGUI implements addUserView {
     public TextField txtEmail;
     public TextField txtPassword;
 
+
     @Override
     public void start(addUserController controller){
         this.addUserController = controller;
     }
+
 
     @Override
     public String[] getTextFieldValues() {
@@ -31,6 +33,7 @@ public class addUserGUI implements addUserView {
     }
 
     public void addUserPressed(ActionEvent actionEvent) {
+        System.out.println("Button pressed, not sent to controller yet");
             addUserController.addUserBtnPressed();
     }
 }

@@ -9,6 +9,7 @@ module SEP2_RE {
     requires javafx.fxml;
     requires javafx.controls;
     requires javafx.graphics;
+    requires java.sql;
 
     exports main to javafx.graphics;
     exports controller.admin to javafx.fxml;
@@ -16,4 +17,6 @@ module SEP2_RE {
     exports view.admin.addUser to javafx.fxml;
 
     opens main to javafx.fxml;
+    opens view.admin.addUser to javafx.fxml;
+    opens view.admin.mainAdmin to javafx.fxml;
 }
