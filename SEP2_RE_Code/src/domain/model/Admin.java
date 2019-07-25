@@ -12,7 +12,7 @@ public class Admin extends Employee implements Serializable {
 
 	@Override
 	public String toString() {
-		return "FirstName is : " + getFirstName() + "LastName is : " + getLastName() +  ", mobileNumber is : " + getmobileNumber() + ", Eamil is : "
-				+ getEamil()  + getPassword() + "]";
+		return "[FirstName is : " + getFirstName() + ", LastName is : " + getLastName() +  ", mobileNumber is : " + getmobileNumber() + ", Email is : "
+				+ getEamil() + ", Password is: "  + getPassword() + "]";
 	}
 }

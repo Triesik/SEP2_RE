@@ -6,8 +6,8 @@ import javafx.scene.control.TextField;
 import controller.admin.addUserController;
 
 public class addUserGUI implements addUserView {
-    public CheckBox tickMakeAsAdmin;
     private addUserController addUserController;
+    public CheckBox tickMakeAsAdmin;
     public TextField txtCPR;
     public TextField txtFirstName;
     public TextField txtLastName;

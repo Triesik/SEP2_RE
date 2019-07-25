@@ -1,5 +1,6 @@
 package controller.admin;
 
+import domain.model.Admin;
 import view.admin.addUser.addUserView;
 
 public class addUserController {
@@ -13,10 +14,10 @@ public class addUserController {
    public void addUserBtnPressed() {
       System.out.println("Button pressed from controller");
       String[] data = view.getTextFieldValues();
-      for(int i = 0; i < data.length; i++) {
-         System.out.println(data[i]);
+      if (view.getCheckedValue()) {
+        Admin admin = new Admin(Integer.parseInt(data[0]), data[1], data[2], data[3], data[4], data[5]);
+         System.out.println(admin.toString());
       }
-      System.out.println("Is an admin: " + view.getCheckedValue());
       view.clearInput();
    }
 
