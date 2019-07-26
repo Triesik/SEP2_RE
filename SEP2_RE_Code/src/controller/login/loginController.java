@@ -1,5 +1,10 @@
 package controller.login;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import view.login.loginView;
 
 public class loginController {
@@ -11,5 +16,19 @@ public class loginController {
 
     public void loginBtnPressed() {
         System.out.println("Login Button pressed");
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/view/admin/mainAdmin/mainAdminGUI.fxml"));
+            Scene scene = new Scene(root);
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.getIcons().add(new Image("file:images/applicationIcon.png"));
+            primaryStage.show();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        view.closeWindow();
     }
 }
