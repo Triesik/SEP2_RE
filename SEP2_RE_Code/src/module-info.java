@@ -18,6 +18,7 @@ module SEP2_RE {
     exports view.admin.editUser to javafx.fxml;
     exports view.admin.removeUser to javafx.fxml;
     exports view.login to javafx.fxml;
+    exports view.user.mainUser to javafx.fxml;
 
     opens main to javafx.fxml;
     opens view.login to javafx.fxml;
@@ -25,5 +26,6 @@ module SEP2_RE {
     opens view.admin.editUser to javafx.fxml;
     opens view.admin.removeUser to javafx.fxml;
     opens view.admin.mainAdmin to javafx.fxml;
+    opens view.user.mainUser to javafx.fxml;
 
 }

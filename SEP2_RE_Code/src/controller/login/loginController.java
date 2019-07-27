@@ -17,16 +17,32 @@ public class loginController {
     public void loginBtnPressed() {
         System.out.println("Login Button pressed");
         Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/view/admin/mainAdmin/mainAdminGUI.fxml"));
-            Scene scene = new Scene(root);
-            Stage primaryStage = new Stage();
-            primaryStage.setScene(scene);
-            primaryStage.getIcons().add(new Image("file:images/applicationIcon.png"));
-            primaryStage.show();
+        if (view.getCPR().equals("Admin")) {
+            try {
+                root = FXMLLoader.load(getClass().getResource("/view/admin/mainAdmin/mainAdminGUI.fxml"));
+                Scene scene = new Scene(root);
+                Stage primaryStage = new Stage();
+                primaryStage.setScene(scene);
+                primaryStage.getIcons().add(new Image("file:images/applicationIcon.png"));
+                primaryStage.show();
 
-        } catch (Exception e){
-            e.printStackTrace();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
+        } else {
+            try {
+                root = FXMLLoader.load(getClass().getResource("/view/user/mainUser/mainUserGUI.fxml"));
+                Scene scene = new Scene(root);
+                Stage primaryStage = new Stage();
+                primaryStage.setScene(scene);
+                primaryStage.getIcons().add(new Image("file:images/applicationIcon.png"));
+                primaryStage.show();
+
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
         }
 
         view.closeWindow();
