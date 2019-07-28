@@ -1,23 +1,22 @@
-package controller.admin;
+package controller.user;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import view.admin.mainAdmin.mainAdminView;
+import view.user.mainUser.mainUserView;
 
-public class mainAdminController {
-    private mainAdminView view;
+public class mainUserController {
+    mainUserView view;
 
-    public mainAdminController(mainAdminView view) {
+    public mainUserController(mainUserView view) {
         this.view = view;
     }
 
-    public void logoutBtnPressed() {
+    public void logoutButtonPressed() {
         System.out.println("Logout button pressed");
         view.closeWindow();
-
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/login/loginGUI.fxml"));
             Scene scene = new Scene(root);
@@ -30,5 +29,4 @@ public class mainAdminController {
             e.printStackTrace();
         }
     }
-
 }

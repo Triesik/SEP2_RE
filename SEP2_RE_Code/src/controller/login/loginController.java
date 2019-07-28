@@ -45,6 +45,6 @@ public class loginController {
 
         }
 
-        view.closeWindow();
+        view.hideWindow();
     }
 }

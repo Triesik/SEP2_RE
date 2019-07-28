@@ -39,6 +39,11 @@ public class loginGUI implements loginView {
         stage.close();
     }
 
+    public void hideWindow() {
+        Stage stage = (Stage) btnLogin.getScene().getWindow();
+        stage.hide();
+    }
+
     public void loginBtnPressed(ActionEvent actionEvent) {
         loginController.loginBtnPressed();
     }

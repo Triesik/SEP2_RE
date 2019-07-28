@@ -6,4 +6,5 @@ public interface loginView {
     public String getPassword();
     public void clearInput();
     public void closeWindow();
+    public void hideWindow();
 }
