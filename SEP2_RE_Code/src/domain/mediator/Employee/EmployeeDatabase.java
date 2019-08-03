@@ -1,7 +1,13 @@
 package domain.mediator.Employee;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import domain.model.employees.Employee;
+
+
 
 public class EmployeeDatabase {
     Connection conn;
@@ -22,11 +28,11 @@ public class EmployeeDatabase {
 
         }
 
-        public void addEmployee(int employeeId, String firstName, String lastName, String email) throws Exception
+        public void addEmployee(int employeeId, String firstName, String lastName, String email, String password) throws Exception
         {
             Statement stmt = null;
             stmt = conn.createStatement();
-            String sql = "INSERT INTO sep2.employee (employeeid ,firstname, lastname, email) VALUES ( "+employeeId+","+"'" + firstName+"'" + ","+"'" + lastName +"'" + ","+"'" + email+ "'" + ");";
+            String sql = "INSERT INTO sep2.employee (employeeid ,firstname, lastname, email, password) VALUES ( "+employeeId+","+"'" + firstName+"'" + ","+"'" + lastName +"'" + ","+"'" + email+ "'" +","+"'" + password + "'" + ");";
             stmt.execute(sql);
         }
 
@@ -46,6 +52,17 @@ public class EmployeeDatabase {
             stmt.execute(sql);
         }
 
-    }
+        public ResultSet getEmployees() throws Exception
+        {
+
+            Statement stmt = null;
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM sep2.employee";
+            ResultSet rs = stmt.executeQuery(sql);
+            return rs;
+        }
+}
+
+
 
 

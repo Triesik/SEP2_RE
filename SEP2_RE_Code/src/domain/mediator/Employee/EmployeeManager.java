@@ -1,9 +1,15 @@
 package domain.mediator.Employee;
 
 
-import java.rmi.Remote;
+import domain.model.employees.Employee;
 
-public class EmployeeManager implements Remote {
+import java.nio.charset.Charset;
+import java.rmi.Remote;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class EmployeeManager implements EmployeeManagerInterface {
 
     EmployeeDatabase database;
 
@@ -16,8 +22,14 @@ public class EmployeeManager implements Remote {
 
     public void addEmployee(int employeeId, String firstName, String lastName, String email) throws Exception
     {
+        byte[] array = new byte[7]; // length is bounded by 7
+        new Random().nextBytes(array);
+        String password = new String(array, Charset.forName("UTF-8"));
 
-        database.addEmployee(employeeId, firstName, lastName, email);
+        System.out.println(password);
+
+
+        database.addEmployee(employeeId, firstName, lastName, email, password);
     }
 
     public void removeEmployee(int id) throws Exception
@@ -30,5 +42,22 @@ public class EmployeeManager implements Remote {
         database.editEmployee(id);
     }
 
+    public ArrayList getEmployees() throws Exception {
+        ArrayList<Employee> list = new ArrayList<>();
+        ResultSet rs = database.getEmployees();
+        while (rs.next()) {
+            // Retrieve by column name
+            int id = rs.getInt("employeeid");
+            String firstName = rs.getString("firstname");
+            String lastName = rs.getString("lastname");
+
+            // Setting the values
+            Employee employee = new Employee();
+            employee.setFirstName(firstName);
+            employee.setLastName(lastName);
+            list.add(employee);
+        }
+        return list;
+    }
 
 }
