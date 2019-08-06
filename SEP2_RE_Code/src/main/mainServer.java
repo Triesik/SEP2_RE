@@ -1,12 +1,15 @@
+package main;
+
 import java.io.IOException;
 
-import mediator.
+import domain.mediator.employee.*;
+import domain.mediator.shift.*;
 
 
 
-public class MainServer {
+public class mainServer {
 
-    public static void main(String args[]) throws IOException, ClassNotFoundException {
+    public static void main(String args[]) throws Exception {
         EmployeeServer employeeServer = new EmployeeServer();
 		ShiftServer shiftServer = new ShiftServer();
 		

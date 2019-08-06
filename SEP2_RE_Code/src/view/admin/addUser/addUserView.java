@@ -1,7 +1,7 @@
 package view.admin.addUser;
 
 import controller.admin.addUserController;
-import domain.model.Employee;
+import domain.model.employee.Employee;
 
 public interface addUserView {
     public void start(addUserController controller);
