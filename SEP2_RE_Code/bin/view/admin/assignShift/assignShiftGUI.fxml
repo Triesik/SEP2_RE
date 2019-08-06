@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="570.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.admin.assignShift.AssignShiftGUI">
+<AnchorPane prefHeight="570.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.admin.assignShift.assignShiftGUI">
    <children>
       <DatePicker layoutX="97.0" layoutY="14.0" />
       <Label layoutX="20.0" layoutY="19.0" text="Date" />
