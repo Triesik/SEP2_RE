@@ -47,4 +47,10 @@ public class loginGUI implements loginView {
     public void loginBtnPressed(ActionEvent actionEvent) {
         loginController.loginBtnPressed();
     }
+
+    public void onEnter(ActionEvent actionEvent) {
+        loginController.loginBtnPressed();
+    }
 }
+
+
