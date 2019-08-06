@@ -5,14 +5,12 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.admin.mainAdmin.mainAdminGUI">
+<AnchorPane prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.admin.mainAdmin.mainAdminGUI">
    <children>
-      <TabPane layoutX="21.0" layoutY="13.0" prefHeight="734.0" prefWidth="758.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="21.0" layoutY="13.0" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="tabMainView" text="Main View">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="677.0" prefWidth="758.0" />
-            </content>
+          <Tab fx:id="tabMainView" text="Dashboard">
+                <fx:include fx:id="embeddedDashBoard" source="../dashBoard/dashBoardGUI.fxml" />
           </Tab>
           <Tab fx:id="tabAddUser" text="Add User">
               <fx:include fx:id="embeddedAddUser" source="../addUser/addUserGUI.fxml" />
@@ -25,6 +23,6 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Button fx:id="btnLogout" layoutX="716.0" layoutY="760.0" mnemonicParsing="false" onAction="#logoutButtonPressed" text="Logout" />
+      <Button fx:id="btnLogout" layoutX="709.0" layoutY="767.0" mnemonicParsing="false" onAction="#logoutButtonPressed" text="Logout" />
    </children>
 </AnchorPane>
