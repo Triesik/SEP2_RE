@@ -15,7 +15,7 @@ public class EmployeeDatabase {
             try {
                 conn = DriverManager
                         .getConnection("jdbc:postgresql://localhost:5432/company",
-                                "root", "root");
+                                "postgres", "4265");
                 System.out.println("Opened database successfully");
             } catch (Exception e) {
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
