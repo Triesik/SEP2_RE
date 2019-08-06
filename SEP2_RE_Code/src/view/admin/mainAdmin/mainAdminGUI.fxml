@@ -21,6 +21,9 @@
             <Tab fx:id="tabRemoveUser" text="Remove User">
                 <fx:include fx:id="embeddedRemoveUser" source="../removeUser/removeUserGUI.fxml" />
             </Tab>
+            <Tab fx:id="tabAssignShift" text="Assign Shift">
+                <fx:include  fx:id="embeddedAssignShift" source="../assignShift/assignShiftGUI.fxml"/>
+            </Tab>
         </tabs>
       </TabPane>
       <Button fx:id="btnLogout" layoutX="709.0" layoutY="767.0" mnemonicParsing="false" onAction="#logoutButtonPressed" text="Logout" />
