@@ -20,13 +20,14 @@ public class EmployeeServer extends EmployeeManager {
 
 
 
-            Registry registry= LocateRegistry.createRegistry(1099);
-            EmployeeManagerInterface stub = (EmployeeManagerInterface) UnicastRemoteObject.exportObject(obj, 1099);
+            Registry registry= LocateRegistry.createRegistry(1098);
+            EmployeeManagerInterface stub = (EmployeeManagerInterface) UnicastRemoteObject.exportObject(obj, 1098);
             System.out.println("Registry started...");
 
             registry.bind("addEmployee", stub);
             registry.bind("removeEmployee", stub);
             registry.bind("editEmployee", stub);
+            registry.bind("getEmployees", stub);
             System.out.print("server rdy");
 
         } catch(Exception e)

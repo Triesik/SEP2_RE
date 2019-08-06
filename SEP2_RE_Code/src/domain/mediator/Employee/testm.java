@@ -2,16 +2,20 @@ package domain.mediator.Employee;
 
 import domain.model.employees.Employee;
 
+import java.util.ArrayList;
+
 public class testm {
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
 
-    EmployeeDatabase e = new EmployeeDatabase();
-        try {
-            e.removeEmployee(2);
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
+    Client client = new Client();
+    client.addEmployee(2, "johny", "wick", "email@mail.dd");
+    ArrayList<Employee> list;
+    list = client.getEmployees();
+    System.out.print(list.get(0).getFirstName());
+
+
+
 
 
     }
