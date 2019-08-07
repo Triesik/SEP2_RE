@@ -1,4 +1,4 @@
-package domain.model.shifts;
+package domain.model.shift;
 
 import java.time.Year;
 
@@ -6,26 +6,23 @@ public class Shift implements java.io.Serializable {
 
     private int shiftId;
     private int employeeId;
-    private int year;
-    private int month;
-    private int day;
-    private int hour;
-    private int minute;
+    private String date;
     private int startTime;
     private int endTime;
     String task;
 
-    public Shift(int employeeId, int year, int month, int day, int hour, int minute, int startTime, int endTime, String task)
+    public Shift(int employeeId,String date, int startTime, int endTime, String task)
     {
+        this.date = date;
         this.employeeId = employeeId;
-        this.year = year;
-        this.month = month;
-        this.day = day;
-        this.hour = hour;
-        this.minute = minute;
         this.startTime = startTime;
         this.endTime = endTime;
         this.task = task;
+    }
+
+    public Shift()
+    {
+
     }
 
     public void setShiftId(int shiftId){this.shiftId = shiftId;}
@@ -34,24 +31,11 @@ public class Shift implements java.io.Serializable {
         this.employeeId = employeeId;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setDate(String date) {
+        this.date = date;
     }
 
 
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    public void setHour(int hour) {
-        this.hour = hour;
-    }
-
-    public void setMinute(int minute) { this.minute = minute;}
 
     public void setStartTime(int startTime) {
         this.startTime = startTime;
@@ -72,24 +56,6 @@ public class Shift implements java.io.Serializable {
         return employeeId;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public int getDay() {
-        return day;
-    }
-
-    public int getHour() { return hour;}
-
-
-    public int getMinute() {
-        return minute;
-    }
 
     public int getStartTime() {
         return startTime;
@@ -98,6 +64,8 @@ public class Shift implements java.io.Serializable {
     public int getEndTime() {
         return endTime;
     }
+
+    public String getDate() {return date;}
 
     public String getTask() {
         return task;
