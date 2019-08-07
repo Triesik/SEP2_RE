@@ -25,6 +25,7 @@ public class ShiftServer extends ShiftManager {
             registry.bind("assignShift", stub);
             registry.bind("removeShift", stub);
             registry.bind("editShift", stub);
+            registry.bind("getWeekPlan", stub);
             System.out.print("server rdy");
 
         } catch(Exception e)

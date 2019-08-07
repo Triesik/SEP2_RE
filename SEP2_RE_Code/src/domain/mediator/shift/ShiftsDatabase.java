@@ -1,8 +1,12 @@
 package domain.mediator.shift;
 
+import domain.model.shift.Shift;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class ShiftsDatabase {
     Connection conn;
@@ -14,7 +18,7 @@ public class ShiftsDatabase {
             try {
                 conn = DriverManager
                         .getConnection("jdbc:postgresql://localhost:5432/company",
-                                "postgres", "4265");
+                                "root", "root");
                 System.out.println("Opened database successfully");
             } catch (Exception e) {
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -45,6 +49,16 @@ public class ShiftsDatabase {
             stmt = conn.createStatement();
             String sql = "";
             stmt.execute(sql);
+        }
+
+        public ResultSet getWeekPlan(int employeeId, String date) throws Exception
+        {
+            Statement stmt = null;
+            stmt = conn.createStatement();
+            String sql = "SELECT * from sep2.shift WHERE date = '" + date + "'" + "and employeeId = " + employeeId;
+            ResultSet rs = stmt.executeQuery(sql);
+            return rs;
+
         }
 
     }
