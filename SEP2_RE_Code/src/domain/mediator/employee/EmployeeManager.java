@@ -46,14 +46,17 @@ public class EmployeeManager implements EmployeeManagerInterface {
         ResultSet rs = database.getEmployees();
         while (rs.next()) {
             // Retrieve by column name
-            int id = rs.getInt("employeeid");
+            int employeeId = rs.getInt("employeeid");
             String firstName = rs.getString("firstname");
             String lastName = rs.getString("lastname");
+            String email = rs.getString(("email"));
 
             // Setting the values
             Employee employee = new Employee();
             employee.setFirstName(firstName);
             employee.setLastName(lastName);
+            employee.setEamil(email);
+            employee.setEmployeeId(employeeId);
             list.add(employee);
         }
         return list;
