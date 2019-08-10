@@ -43,17 +43,6 @@ public class manageEmployeeGUI implements manageEmployeeView {
     public Button loadEmployeesBtn;
     public AnchorPane manageEmployeePane;
 
-    FocusListener focusListener = new FocusListener() {
-        @Override
-        public void focusGained(FocusEvent focusEvent) {
-            System.out.println(focusEvent);
-        }
-
-        @Override
-        public void focusLost(FocusEvent focusEvent) {
-            System.out.println(focusEvent);
-        }
-    };
 
 
     public manageEmployeeGUI() throws Exception {
@@ -127,6 +116,13 @@ public class manageEmployeeGUI implements manageEmployeeView {
     }
 
     public void onMouseEntered(MouseEvent mouseEvent) throws Exception {
+        refreshEmployeeTable();
+    }
+
+
+    public void removeEmployeeBtnPressed(ActionEvent actionEvent) throws Exception {
+        Employee selected =  tbData.getSelectionModel().getSelectedItem();
+        manageEmployeeController.removeEmployee(selected.getEmployeeId());
         refreshEmployeeTable();
     }
 }

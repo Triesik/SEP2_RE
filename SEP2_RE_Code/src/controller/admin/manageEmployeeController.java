@@ -27,6 +27,11 @@ public class manageEmployeeController {
     }
 
 
+    public void removeEmployee(int id) throws Exception {
+        client.removeEmployee(id);
+    }
+
+
 
 
 }
