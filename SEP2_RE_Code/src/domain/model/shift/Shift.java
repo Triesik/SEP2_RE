@@ -1,7 +1,5 @@
 package domain.model.shift;
 
-import java.time.Year;
-
 public class Shift implements java.io.Serializable {
 
     private int shiftId;
@@ -70,5 +68,7 @@ public class Shift implements java.io.Serializable {
     public String getTask() {
         return task;
     }
+
+    public String toString() { return getStartTime() + " - " + getEndTime() + " " + getTask(); }
 
 }
