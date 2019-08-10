@@ -12,9 +12,6 @@
           <Tab fx:id="tabMainView" text="Dashboard">
                 <fx:include fx:id="embeddedDashBoard" source="../dashBoard/dashBoardGUI.fxml" />
           </Tab>
-          <Tab fx:id="tabAddUser" text="Add User">
-              <fx:include fx:id="embeddedAddUser" source="../addUser/addUserGUI.fxml" />
-          </Tab>
             <Tab fx:id="tabEditUser" text="Edit User">
                 <fx:include fx:id="embeddedEditUser" source="../editUser/editUserGUI.fxml" />
             </Tab>

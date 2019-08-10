@@ -8,9 +8,11 @@ public interface addUserView {
 
     public String[] getTextFieldValues();
 
-    public boolean getCheckedValue();
+    public String getCheckedValue();
 
     public void clearInput();
+
+    public void closeWindow();
 
 
 }

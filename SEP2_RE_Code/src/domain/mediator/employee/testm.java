@@ -19,7 +19,7 @@ public class testm {
     //System.out.print(list.get(0).getFirstName());
     //System.out.print(em.verifyPassword(1, "12345"));
     //System.out.print(client.verifyPassword(1, "12345"));
-        System.out.print(client.isAdmin(1));
+        //System.out.print(client.isAdmin(1));
 
 
 
