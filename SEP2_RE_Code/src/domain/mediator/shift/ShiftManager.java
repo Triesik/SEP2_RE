@@ -2,7 +2,6 @@ package domain.mediator.shift;
 
 
 
-import java.rmi.Remote;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,7 +21,7 @@ public class ShiftManager implements ShiftManagerInterface {
 
     }
 
-    public void assignShift(int shiftId, int employeeId, int date, int startTime, int endTime, String task) throws Exception
+    public void assignShift(int shiftId, int employeeId, String date, int startTime, int endTime, String task) throws Exception
     {
 
         database.assignShift(shiftId, employeeId, date, startTime, endTime, task);

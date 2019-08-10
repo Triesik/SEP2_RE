@@ -15,8 +15,10 @@ public class test {
 
         ArrayList<Shift> list = new ArrayList<>();
         ShiftManager sm = new ShiftManager();
-        list = sm.getWeekPlan(1, Calendar.getInstance());
-        System.out.print(list.get(0).getDate());
+        //list = sm.getWeekPlan(1, Calendar.getInstance());
+        //System.out.print(list.get(0).getDate());
+        Client client = new Client();
+        client.assignShift(5, 1, "2019-08-13", 2, 5, "picking garbage");
 
 
 
