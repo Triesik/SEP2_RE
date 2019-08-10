@@ -10,6 +10,7 @@ import controller.admin.mainAdminController;
 import view.admin.addUser.addUserView;
 public class mainAdminGUI implements mainAdminView {
     public Tab tabAssignShift;
+    public Tab tabManageEmployee;
     private mainAdminController mainAdminController;
     public Parent embeddedAddUser;
     public Tab tabMainView;

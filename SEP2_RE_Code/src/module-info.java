@@ -25,6 +25,9 @@ module SEP2_RE {
     exports view.admin.assignShift to javafx.fxml;
     exports domain.mediator.employee to java.rmi;
     exports domain.mediator.shift to java.rmi;
+    exports view.admin.manageEmployee to javafx.fxml;
+    exports domain.model.employee to javafx.fxml;
+    exports client to javafx.fxml;
 
 
 
@@ -38,5 +41,6 @@ module SEP2_RE {
     opens view.admin.dashBoard to javafx.fxml;
     opens view.user.dashBoard to javafx.fxml;
     opens view.admin.assignShift to javafx.fxml;
+    opens view.admin.manageEmployee to javafx.fxml;
 
 }

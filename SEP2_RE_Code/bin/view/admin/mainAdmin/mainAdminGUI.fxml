@@ -24,6 +24,11 @@
             <Tab fx:id="tabAssignShift" text="Assign Shift">
                 <fx:include  fx:id="embeddedAssignShift" source="../assignShift/assignShiftGUI.fxml"/>
             </Tab>
+
+            <Tab fx:id="tabManageEmployee" text="Manage Employee">
+                <fx:include  fx:id="embeddedManageEmployee" source="../manageEmployee/manageEmployeeGUI.fxml"/>
+            </Tab>
+
         </tabs>
       </TabPane>
       <Button fx:id="btnLogout" layoutX="709.0" layoutY="767.0" mnemonicParsing="false" onAction="#logoutButtonPressed" text="Logout" />
