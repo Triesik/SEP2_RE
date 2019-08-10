@@ -19,7 +19,7 @@ public class EmployeeManager implements EmployeeManagerInterface {
 
     }
 
-    public void addEmployee(int employeeId, String firstName, String lastName, String email) throws Exception
+    public void addEmployee(int employeeId, String firstName, String lastName, String email, String userType) throws Exception
     {
         byte[] array = new byte[7]; // length is bounded by 7
         new Random().nextBytes(array);
@@ -28,7 +28,7 @@ public class EmployeeManager implements EmployeeManagerInterface {
         System.out.println(password);
 
 
-        database.addEmployee(employeeId, firstName, lastName, email, password);
+        database.addEmployee(employeeId, firstName, lastName, email, password, userType);
     }
 
     public void removeEmployee(int id) throws Exception
@@ -60,6 +60,36 @@ public class EmployeeManager implements EmployeeManagerInterface {
             list.add(employee);
         }
         return list;
+    }
+
+    public boolean verifyPassword(int employeeId, String inputPassword) throws Exception
+    {
+        ResultSet rs = database.getPassword(employeeId);
+        rs.next();
+        String password = rs.getString("password");
+
+
+        if(password.equals(inputPassword))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isAdmin(int employeeId) throws Exception
+    {
+        ResultSet rs = database.getUserType(employeeId);
+        rs.next();
+        String userType = rs.getString("usertype");
+
+
+        if(userType.equals("admin"))
+        {
+            return true;
+        }
+
+        return false;
+
     }
 
 }

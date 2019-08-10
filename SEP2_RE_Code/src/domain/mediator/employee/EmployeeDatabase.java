@@ -24,11 +24,11 @@ public class EmployeeDatabase {
 
         }
 
-        public void addEmployee(int employeeId, String firstName, String lastName, String email, String password) throws Exception
+        public void addEmployee(int employeeId, String firstName, String lastName, String email, String password, String userType) throws Exception
         {
             Statement stmt = null;
             stmt = conn.createStatement();
-            String sql = "INSERT INTO sep2.employee (employeeid ,firstname, lastname, email, password) VALUES ( "+employeeId+","+"'" + firstName+"'" + ","+"'" + lastName +"'" + ","+"'" + email+ "'" +","+"'" + password + "'" + ");";
+            String sql = "INSERT INTO sep2.employee (employeeid ,firstname, lastname, email, password, usertype) VALUES ( "+employeeId+","+"'" + firstName+"'" + ","+"'" + lastName +"'" + ","+"'" + email+ "'" +","+"'" + password + "'" + "," + "'" + userType + "'" +  ");";
             stmt.execute(sql);
         }
 
@@ -57,6 +57,26 @@ public class EmployeeDatabase {
             ResultSet rs = stmt.executeQuery(sql);
             return rs;
         }
+
+        public ResultSet getPassword(int employeeId) throws Exception
+        {
+            Statement stmt = null;
+            stmt = conn.createStatement();
+            String sql = "SELECT password FROM sep2.employee WHERE (employeeid) = "+employeeId+"";
+            ResultSet rs = stmt.executeQuery(sql);
+            return rs;
+        }
+
+        public ResultSet getUserType(int employeeId) throws Exception
+        {
+            Statement stmt = null;
+            stmt = conn.createStatement();
+            String sql = "SELECT usertype FROM sep2.employee WHERE (employeeid) = "+employeeId+"";
+            ResultSet rs = stmt.executeQuery(sql);
+            return rs;
+        }
+
+
 }
 
 
