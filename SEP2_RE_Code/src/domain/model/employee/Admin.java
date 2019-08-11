@@ -7,8 +7,8 @@ import java.util.Date;
 
 public class Admin extends Employee implements Serializable {
 
-	public Admin(int employeeId ,String firstName, String lastName, String email, String password) {
-		super(employeeId, firstName, lastName, email,  password);
+	public Admin(int employeeId ,String firstName, String lastName, String email, String password, String userType) {
+		super(employeeId, firstName, lastName, email,  password, userType);
 	}
 
 	@Override

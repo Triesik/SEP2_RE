@@ -1,40 +1,49 @@
-package domain.mediator.employee;
+package domain.mediator.attendance;
 
 
+import domain.model.Date.Date;
 import domain.model.employee.Employee;
 
+import java.rmi.Remote;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Random;
 
 
-public class EmployeeManager implements EmployeeManagerInterface {
+public class AttendanceManager implements AttendanceManagerInterface {
 
-    EmployeeDatabase database;
+    AttendanceDatabase database;
+    Date date;
 
-    public EmployeeManager()
+    public AttendanceManager()
     {
 
-        this.database = new EmployeeDatabase();
+        this.database = new AttendanceDatabase();
 
     }
 
-    public void addEmployee(int employeeId, String firstName, String lastName, String email, String userType) throws Exception
+    public void checkIn(int employeeId) throws Exception
     {
-        String password = generatePassword();
+        date = new Date(Calendar.getInstance());
 
-        database.addEmployee(employeeId, firstName, lastName, email, password, userType);
+        String startDate = date.toString();
+        String startTime = date.timeToString();
+        int shiftId = employeeId + date.getDay() + date.getMonth() + date.getYear();
+
+        database.setStatus(employeeId, true);
+        database.checkIn(employeeId, shiftId, startDate, startTime);
     }
 
-    public void removeEmployee(int id) throws Exception
+    public void checkOut(int shiftid)
+
+
+
+    public void removeEntry(int shiftId) throws Exception
     {
-        database.removeEmployee(id);
+        database.removeEntry(shiftId);
     }
 
-    public void editEmployee(int id) throws Exception
-    {
-        database.editEmployee(id);
-    }
 
     public ArrayList getEmployees() throws Exception {
         ArrayList<Employee> list = new ArrayList<>();
@@ -71,14 +80,14 @@ public class EmployeeManager implements EmployeeManagerInterface {
         return false;
     }
 
-    public boolean isAdmin(int employeeId) throws Exception
+    public boolean getStatus(int employeeId) throws Exception
     {
-        ResultSet rs = database.getUserType(employeeId);
+        ResultSet rs = database.getStatus(employeeId);
         rs.next();
-        String userType = rs.getString("usertype");
+        String status = rs.getString("status");
 
 
-        if(userType.equals("admin"))
+        if(status.equals("true"))
         {
             return true;
         }
@@ -87,19 +96,9 @@ public class EmployeeManager implements EmployeeManagerInterface {
 
     }
 
-    public String generatePassword()
-    {
-        String SALTCHARS = "abcdefghijklmnoprstuwxvyz1234567890";
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        while (salt.length() < 8) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
-        }
-        String saltStr = salt.toString();
-        return saltStr;
 
-    }
+
+
 
 
 }

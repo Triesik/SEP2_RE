@@ -1,0 +1,69 @@
+package domain.mediator.attendance;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+
+public class AttendanceDatabase {
+    Connection conn;
+
+    public AttendanceDatabase() {
+
+        this.conn = null;
+
+        try {
+            conn = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/attendance",
+                            "root", "root");
+            System.out.println("Opened database successfully");
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+
+    }
+
+    public void checkIn(int employeeId, int shiftId, String startDate, String startTime) throws Exception
+    {
+        Statement stmt = null;
+        stmt = conn.createStatement();
+        String sql = "INSERT INTO sep2.attendance (employeeid ,shiftid, startdate, starttime) VALUES ( "+employeeId+","+ + shiftId + ","+"'" + startDate +"'" + ","+"'" + startTime+ "'" + ");";
+        stmt.execute(sql);
+    }
+
+    public void removeEmployee(int employeeId) throws Exception
+    {
+        Statement stmt = null;
+        stmt = conn.createStatement();
+        String sql = "DELETE FROM sep2.employee where (employeeid) = "+employeeId+"";
+        stmt.execute(sql);
+    }
+
+
+
+    public ResultSet getStatus(int employeeId) throws Exception
+    {
+
+        Statement stmt = null;
+        stmt = conn.createStatement();
+        String sql = "SELECT status FROM sep2.employee where (employeeid) = "+employeeId+";";
+        ResultSet rs = stmt.executeQuery(sql);
+        return rs;
+    }
+
+    public void setStatus(int employeeId, boolean status) throws Exception
+    {
+        Statement stmt = null;
+        stmt = conn.createStatement();
+        String sql = "UPDATE employee SET status = " + status + " WHERE id = "+ employeeId +";";
+        stmt.executeQuery(sql);
+    }
+
+
+
+}
+
+
+
+
