@@ -1,10 +1,8 @@
 package client;
+import domain.mediator.attendance.AttendanceManagerInterface;
 import domain.mediator.employee.EmployeeManagerInterface;
 import domain.mediator.shift.ShiftManagerInterface;
-import domain.mediator.shift.*;
-
 import domain.model.employee.Employee;
-import domain.model.employee.*;
 import domain.model.shift.Shift;
 
 import java.rmi.Naming;
@@ -73,6 +71,27 @@ public class Client {
         ShiftManagerInterface stub = (ShiftManagerInterface) Naming.lookup("rmi://localhost:1099/getWeekPlan");
         ArrayList<Shift> list = stub.getWeekPlan(employeeId, date);
         return list;
+    }
+
+    //----------------------------ATTENDANCE--PORT:1098-----------------------------------------------------------------
+
+    public void checkIn(int employeeId) throws Exception
+    {
+        AttendanceManagerInterface stub = (AttendanceManagerInterface) Naming.lookup("rmi://localhost:1098/checkIn");
+        stub.checkIn(employeeId);
+    }
+
+    public void checkOut(int employeeId) throws Exception
+    {
+        AttendanceManagerInterface stub = (AttendanceManagerInterface) Naming.lookup("rmi://localhost:1098/checkOut");
+        stub.checkIn(employeeId);
+    }
+
+    public boolean getStatus(int employeeId) throws Exception
+    {
+        AttendanceManagerInterface stub = (AttendanceManagerInterface) Naming.lookup("rmi://localhost:1098/getStatus");
+        boolean status = stub.getStatus(employeeId);
+        return status;
     }
 
 

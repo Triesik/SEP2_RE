@@ -74,13 +74,14 @@ public class Date {
             currently.add(Calendar.DATE, -1);
         }
 
-            int day = currently.get(Calendar.DAY_OF_MONTH);
-            int month = currently.get(Calendar.MONTH) + 1;
-            int year = currently.get(Calendar.YEAR);
-
             return currently;
 
         }
+
+    public String timeToString()
+    {
+        return getHour() + ":" + getMinute();
+    }
 
 
 

@@ -17,13 +17,16 @@ public class test {
 
         givenDate = date.getFirstDayOfWeek();
 
-        for(int i = 0; i < 7; i++)
-        {
-            Date newDate = new Date(givenDate);
-            System.out.print(newDate.toString() + " ");
-            givenDate.add(Calendar.DATE, +1);
+        //for(int i = 0; i < 7; i++)
+        //{
+            //Date newDate = new Date(givenDate);
+            //System.out.print(newDate.toString() + " ");
+            //givenDate.add(Calendar.DATE, +1);
 
-        }
+        //}
+
+
+        System.out.print(date.timeToString());
 
 
 

@@ -8,15 +8,16 @@ public class Employee implements java.io.Serializable {
 	private String gender;
 	private int employeeId;
 	private String password;
+	private String userType;
 
-	public Employee(int employeeId, String firstName, String lastName, String email, String password)
+	public Employee(int employeeId, String firstName, String lastName, String email, String password, String userType)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.gender = gender;
 		this.password = password;
 		this.employeeId = employeeId;
+		this.userType = userType;
 	}
 
 	public Employee()
