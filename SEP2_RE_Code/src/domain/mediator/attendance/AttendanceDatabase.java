@@ -24,13 +24,23 @@ public class AttendanceDatabase {
 
     }
 
-    public void checkIn(int employeeId, int shiftId, String startDate, String startTime) throws Exception
+    public void checkIn(int employeeId, String shiftId, String startDate, String startTime) throws Exception
     {
         Statement stmt = null;
         stmt = conn.createStatement();
-        String sql = "INSERT INTO sep2.attendance (employeeid ,shiftid, startdate, starttime) VALUES ( "+employeeId+","+ + shiftId + ","+"'" + startDate +"'" + ","+"'" + startTime+ "'" + ");";
+        String sql = "INSERT INTO sep2.attendance (employeeid ,shiftid, startdate, starttime) VALUES ( "+employeeId+","+ "'" + shiftId + "'" + ","+"'" + startDate +"'" + ","+"'" + startTime+ "'" + ");";
         stmt.execute(sql);
     }
+
+    public void checkOut(String shiftId ,String endDate, String endTime) throws Exception
+    {
+        Statement stmt = null;
+        stmt = conn.createStatement();
+        String sql = "UPDATE attendance SET enddate = " + "'" + endDate + "'"  + "," + "endtime " + "'" + endTime + "'" + " WHERE shiftid = "+ shiftId +";";
+        stmt.executeQuery(sql);
+    }
+
+
 
     public void removeEmployee(int employeeId) throws Exception
     {
@@ -52,7 +62,7 @@ public class AttendanceDatabase {
         return rs;
     }
 
-    public void setStatus(int employeeId, boolean status) throws Exception
+    public void setStatus(int employeeId, String status) throws Exception
     {
         Statement stmt = null;
         stmt = conn.createStatement();

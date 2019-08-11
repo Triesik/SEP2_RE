@@ -4,11 +4,10 @@ package domain.mediator.attendance;
 import domain.model.Date.Date;
 import domain.model.employee.Employee;
 
-import java.rmi.Remote;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 
 public class AttendanceManager implements AttendanceManagerInterface {
@@ -25,17 +24,29 @@ public class AttendanceManager implements AttendanceManagerInterface {
 
     public void checkIn(int employeeId) throws Exception
     {
+        TimeUnit.SECONDS.sleep(1);
         date = new Date(Calendar.getInstance());
 
         String startDate = date.toString();
         String startTime = date.timeToString();
-        int shiftId = employeeId + date.getDay() + date.getMonth() + date.getYear();
+        String shiftId = (Integer.toString(date.getDay()) + Integer.toString(date.getMonth()) + Integer.toString(date.getYear()) + Integer.toString(date.getHour()) + Integer.toString(date.getMinute()) + Integer.toString(date.getMinute()) + employeeId);
 
-        database.setStatus(employeeId, true);
+        database.setStatus(employeeId, shiftId);
         database.checkIn(employeeId, shiftId, startDate, startTime);
     }
 
-    public void checkOut(int shiftid)
+    public void checkOut(int employeeId) throws Exception
+    {
+        date = new Date(Calendar.getInstance());
+
+        String endDate = date.toString();
+        String endTime = date.timeToString();
+        ResultSet rs = database.getStatus(employeeId);
+        rs.next();
+        String status = rs.getString("status");
+        database.checkOut(status, endDate, endTime);
+        database.setStatus(employeeId, "nonactive");
+    }
 
 
 
@@ -87,12 +98,12 @@ public class AttendanceManager implements AttendanceManagerInterface {
         String status = rs.getString("status");
 
 
-        if(status.equals("true"))
+        if(status.equals("nonactive"))
         {
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
 
     }
 
