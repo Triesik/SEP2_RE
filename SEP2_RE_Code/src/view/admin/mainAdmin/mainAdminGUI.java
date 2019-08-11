@@ -1,5 +1,6 @@
 package view.admin.mainAdmin;
 import controller.admin.mainAdminController;
+import domain.model.loggedInEmployee.currentEmployee;
 import javafx.event.ActionEvent;
 import javafx.scene.AccessibleAction;
 import javafx.scene.Parent;
@@ -22,7 +23,9 @@ public class mainAdminGUI implements mainAdminView {
 
     public mainAdminGUI() {
         this.mainAdminController = new mainAdminController(this);
+        System.out.println("Current ID is: " + currentEmployee.getId());
     }
+
 
     public void closeWindow(){
         Stage stage = (Stage) btnLogout.getScene().getWindow();

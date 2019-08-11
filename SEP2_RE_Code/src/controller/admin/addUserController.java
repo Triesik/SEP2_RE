@@ -25,6 +25,9 @@ public class addUserController {
       if (view.getCheckedValue().equals("admin")) {
         Employee employee = new Employee((Integer.parseInt(data[0])), data[1], data[2], data[3], view.getCheckedValue());
          client.addEmployee(Integer.parseInt(data[0]), data[1], data[2], data[3], view.getCheckedValue());
+      } else {
+         Employee employee = new Employee((Integer.parseInt(data[0])), data[1], data[2], data[3], view.getCheckedValue());
+         client.addEmployee(Integer.parseInt(data[0]), data[1], data[2], data[3], view.getCheckedValue());
       }
 
       view.clearInput();

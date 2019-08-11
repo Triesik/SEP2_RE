@@ -1,5 +1,6 @@
 package view.login;
 
+import client.Client;
 import controller.login.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,13 +12,15 @@ public class loginGUI implements loginView {
 
     public Button btnLogin;
     private controller.login.loginController loginController;
+    private Client client;
     @FXML
     private TextField txtCPR;
     @FXML
     private TextField txtPassword;
 
-    public loginGUI() {
-        this.loginController = new loginController(this);
+    public loginGUI() throws Exception {
+        client = new Client();
+        this.loginController = new loginController(this, client);
     }
 
 
@@ -44,12 +47,12 @@ public class loginGUI implements loginView {
         stage.hide();
     }
 
-    public void loginBtnPressed(ActionEvent actionEvent) {
-        loginController.loginBtnPressed();
+    public void loginBtnPressed(ActionEvent actionEvent) throws Exception {
+        loginController.loginBtnPressed(Integer.parseInt(txtCPR.getText()), txtPassword.getText());
     }
 
-    public void onEnter(ActionEvent actionEvent) {
-        loginController.loginBtnPressed();
+    public void onEnter(ActionEvent actionEvent) throws Exception {
+        loginController.loginBtnPressed(Integer.parseInt(txtCPR.getText()), txtPassword.getText());
     }
 }
 
