@@ -1,9 +1,6 @@
 package domain.mediator.attendance;
 
 
-import domain.mediator.shift.*;
-
-
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
@@ -19,7 +16,7 @@ public class AttendanceServer extends AttendanceManager {
 
 
             Registry registry= LocateRegistry.createRegistry(1098);
-            ShiftManagerInterface stub = (ShiftManagerInterface) UnicastRemoteObject.exportObject(obj, 1098);
+            AttendanceManagerInterface stub = (AttendanceManagerInterface) UnicastRemoteObject.exportObject(obj, 1098);
             System.out.println("Registry started...");
 
             registry.bind("checkIn", stub);

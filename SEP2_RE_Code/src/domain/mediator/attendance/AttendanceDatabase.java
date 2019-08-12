@@ -14,7 +14,7 @@ public class AttendanceDatabase {
 
         try {
             conn = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/attendance",
+                    .getConnection("jdbc:postgresql://localhost:5432/company",
                             "root", "root");
             System.out.println("Opened database successfully");
         } catch (Exception e) {
@@ -36,8 +36,8 @@ public class AttendanceDatabase {
     {
         Statement stmt = null;
         stmt = conn.createStatement();
-        String sql = "UPDATE attendance SET enddate = " + "'" + endDate + "'"  + "," + "endtime " + "'" + endTime + "'" + " WHERE shiftid = "+ shiftId +";";
-        stmt.executeQuery(sql);
+        String sql = "UPDATE sep2.attendance SET enddate = " + "'" + endDate + "'" + ","  + "endtime = " + "'" + endTime + "'" + " WHERE shiftid = "+ "'" + shiftId + "'";
+        stmt.execute(sql);
     }
 
 
@@ -66,8 +66,10 @@ public class AttendanceDatabase {
     {
         Statement stmt = null;
         stmt = conn.createStatement();
-        String sql = "UPDATE employee SET status = " + status + " WHERE id = "+ employeeId +";";
-        stmt.executeQuery(sql);
+        String sql = "UPDATE sep2.employee SET status = " + "'" + status + "'" + " WHERE employeeid = "+ employeeId +";";
+        stmt.execute(sql);
+
+
     }
 
 

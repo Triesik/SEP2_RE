@@ -84,7 +84,7 @@ public class Client {
     public void checkOut(int employeeId) throws Exception
     {
         AttendanceManagerInterface stub = (AttendanceManagerInterface) Naming.lookup("rmi://localhost:1098/checkOut");
-        stub.checkIn(employeeId);
+        stub.checkOut(1);
     }
 
     public boolean getStatus(int employeeId) throws Exception
