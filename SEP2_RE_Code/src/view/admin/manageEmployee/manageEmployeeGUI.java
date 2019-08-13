@@ -125,4 +125,15 @@ public class manageEmployeeGUI implements manageEmployeeView {
         manageEmployeeController.removeEmployee(selected.getEmployeeId());
         refreshEmployeeTable();
     }
+
+    public void assignShiftBtnPressed(ActionEvent actionEvent) throws IOException {
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("/view/admin/assignShift/assignShiftGUI.fxml"));
+        Scene scene = new Scene(root);
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image("file:images/applicationIcon.png"));
+        primaryStage.show();
+
+    }
 }
