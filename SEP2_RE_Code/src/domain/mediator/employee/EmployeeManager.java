@@ -19,9 +19,11 @@ public class EmployeeManager implements EmployeeManagerInterface {
 
     }
 
-    public void addEmployee(int employeeId, String firstName, String lastName, String email, String userType) throws Exception
+    public void addEmployee(String firstName, String lastName, String email, String userType) throws Exception
     {
         String password = generatePassword();
+        int employeeId = firstName.length() + userType.length();
+
 
         database.addEmployee(employeeId, firstName, lastName, email, password, userType);
     }
@@ -31,10 +33,6 @@ public class EmployeeManager implements EmployeeManagerInterface {
         database.removeEmployee(id);
     }
 
-    public void editEmployee(int id) throws Exception
-    {
-        database.editEmployee(id);
-    }
 
     public ArrayList getEmployees() throws Exception {
         ArrayList<Employee> list = new ArrayList<>();
@@ -99,6 +97,30 @@ public class EmployeeManager implements EmployeeManagerInterface {
         String saltStr = salt.toString();
         return saltStr;
 
+    }
+
+    public Employee getOneEmployee(int employeeId) throws Exception
+    {
+        ResultSet rs = database.getOneEmployee(employeeId);
+        rs.next();
+        int employeeid = rs.getInt("employeeid");
+        String firstName = rs.getString("firstname");
+        String lastName = rs.getString("lastname");
+        String email = rs.getString(("email"));
+
+        // Setting the values
+        Employee employee = new Employee();
+        employee.setFirstName(firstName);
+        employee.setLastName(lastName);
+        employee.setEamil(email);
+        employee.setEmployeeId(employeeid);
+
+        return employee;
+    }
+
+    public void editEmployee(int employeeId, String firstName, String lastName, String email, String password) throws Exception
+    {
+        database.editEmployee(employeeId, firstName, lastName, email, password);
     }
 
 
