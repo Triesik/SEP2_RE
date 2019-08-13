@@ -60,10 +60,10 @@ public class Client {
 
     //-------------------------------SHIFTS--PORT:1099----------------------------------------------------------------
 
-    public void assignShift(int shiftId, int employeeId, String date, int startTime, int endTime, String task) throws Exception
+    public void assignShift(int employeeId, String date, String startTime, String endTime, String task) throws Exception
     {
         ShiftManagerInterface stub = (ShiftManagerInterface) Naming.lookup("rmi://localhost:1099/assignShift");
-        stub.assignShift(shiftId, employeeId, date, startTime, endTime, task);
+        stub.assignShift(employeeId, date, startTime, endTime, task);
     }
 
     public ArrayList<Shift> getWeekPlan(int employeeId, Calendar date) throws Exception
