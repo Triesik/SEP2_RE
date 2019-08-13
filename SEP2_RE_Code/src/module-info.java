@@ -29,6 +29,7 @@ module SEP2_RE {
     exports view.admin.manageEmployee to javafx.fxml;
     exports domain.model.employee to javafx.fxml;
     exports client to javafx.fxml;
+    exports domain.mediator.attendance to java.rmi;
 
 
 

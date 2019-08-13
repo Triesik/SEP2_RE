@@ -8,7 +8,7 @@
    <children>
       <TableView fx:id="tbData" layoutX="18.0" layoutY="17.0" prefHeight="441.0" prefWidth="714.0">
       </TableView>
-      <Button fx:id="assignShiftBtn" layoutX="448.0" layoutY="659.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="271.0" text="Assign Shift" />
+      <Button fx:id="assignShiftBtn" layoutX="448.0" layoutY="659.0" mnemonicParsing="false" onAction="#assignShiftBtnPressed"  prefHeight="47.0" prefWidth="271.0" text="Assign Shift" />
       <Button fx:id="removeEmployeeBtn" layoutX="448.0" layoutY="597.0" mnemonicParsing="false" onAction="#removeEmployeeBtnPressed"  prefHeight="47.0" prefWidth="271.0" text="Remove Employee" />
       <Button fx:id="editEmployeeBtn" layoutX="448.0" layoutY="536.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="271.0" text="Edit Employee" />
       <Button fx:id="addEmployeeBtn" layoutX="448.0" layoutY="474.0" mnemonicParsing="false" onAction="#addEmployeeBtnPressed" prefHeight="47.0" prefWidth="271.0" text="Add Employee" />
