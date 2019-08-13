@@ -21,10 +21,11 @@ public class EmployeeServer extends EmployeeManager {
 
             registry.bind("addEmployee", stub);
             registry.bind("removeEmployee", stub);
-            registry.bind("editEmployee", stub);
             registry.bind("getEmployees", stub);
             registry.bind("verifyPassword", stub);
             registry.bind("isAdmin", stub);
+            registry.bind("getOneEmployee", stub);
+            registry.bind("editEmployee", stub);
             System.out.print("server rdy");
 
         } catch(Exception e)

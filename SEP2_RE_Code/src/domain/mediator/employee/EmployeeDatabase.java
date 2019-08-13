@@ -40,13 +40,6 @@ public class EmployeeDatabase {
             stmt.execute(sql);
         }
 
-        public void editEmployee(int employeeId) throws Exception
-        {
-            Statement stmt = null;
-            stmt = conn.createStatement();
-            String sql = "";
-            stmt.execute(sql);
-        }
 
         public ResultSet getEmployees() throws Exception
         {
@@ -74,6 +67,25 @@ public class EmployeeDatabase {
             String sql = "SELECT usertype FROM sep2.employee WHERE (employeeid) = "+employeeId+"";
             ResultSet rs = stmt.executeQuery(sql);
             return rs;
+        }
+
+        public ResultSet getOneEmployee(int employeeId) throws Exception
+        {
+            Statement stmt = null;
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM sep2.employee WHERE (employeeid) = "+employeeId+"";
+            ResultSet rs = stmt.executeQuery(sql);
+            return rs;
+        }
+
+        public void editEmployee(int employeeId, String firstName, String lastName, String email, String password) throws Exception
+        {
+            Statement stmt;
+            stmt = conn.createStatement();
+            String sql = "UPDATE sep2.employee SET firstname = " + "'" + firstName + "'" + "," +
+                    "lastname = "+ "'" + lastName + "'" + "," + "email = '" + email + "'" +
+                    "," + "password = '" + password + "'" + " WHERE employeeid = "+ "'" + employeeId + "'";
+            stmt.execute(sql);
         }
 
 

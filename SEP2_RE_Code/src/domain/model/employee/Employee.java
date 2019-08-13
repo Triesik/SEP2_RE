@@ -50,10 +50,6 @@ public class Employee implements java.io.Serializable {
 		return lastName;
 	}
 
-	public String getGender() {
-		return gender;
-	}
-
 	public String getEmail() {
 		return email;
 	}
