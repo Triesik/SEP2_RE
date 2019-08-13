@@ -26,7 +26,7 @@ public class Client {
 
 
         EmployeeManagerInterface stub = (EmployeeManagerInterface) Naming.lookup("rmi://localhost:1097/addEmployee");
-        stub.addEmployee(employeeId, firstName, lastName,email, userType);
+        stub.addEmployee(firstName, lastName,email, userType);
 
     }
 
@@ -56,6 +56,19 @@ public class Client {
         EmployeeManagerInterface stub = (EmployeeManagerInterface) Naming.lookup("rmi://localhost:1097/isAdmin");
         boolean check = stub.isAdmin(employeeId);
         return check;
+    }
+
+    public Employee getOneEmployee(int employeeId) throws Exception
+    {
+        EmployeeManagerInterface stub = (EmployeeManagerInterface) Naming.lookup("rmi://localhost:1097/getOneEmployee");
+        Employee employee = stub.getOneEmployee(employeeId);
+        return employee;
+    }
+
+    public void editEmployee(int employeeId, String firstName, String lastName, String email, String password) throws Exception
+    {
+        EmployeeManagerInterface stub = (EmployeeManagerInterface) Naming.lookup("rmi://localhost:1097/editEmployee");
+        stub.editEmployee(employeeId, firstName, lastName, email, password);
     }
 
     //-------------------------------SHIFTS--PORT:1099----------------------------------------------------------------
