@@ -8,7 +8,7 @@ import java.util.Calendar;
 
 public interface ShiftManagerInterface extends Remote {
 
-    void assignShift(int shiftId, int employeeId, String date, int startTime, int endTime, String task) throws Exception;
+    void assignShift(int employeeId, String date, String startTime, String endTime, String task) throws Exception;
     void removeShift(int shiftId) throws Exception;
     void editShift(int shiftId) throws Exception;
     ArrayList<Shift> getWeekPlan(int employeeId, Calendar date) throws Exception;

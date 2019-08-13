@@ -1,12 +1,9 @@
 package domain.mediator.shift;
 
-import domain.model.shift.Shift;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 public class ShiftsDatabase {
     Connection conn;
@@ -27,11 +24,11 @@ public class ShiftsDatabase {
 
         }
 
-        public void assignShift(int shiftid, int employeeId, String date, int startTime, int endTime, String task) throws Exception
+        public void assignShift(int shiftid, int employeeId, String date, String startTime, String endTime, String task) throws Exception
         {
             Statement stmt = null;
             stmt = conn.createStatement();
-            String sql = "INSERT INTO sep2.shift (shiftid ,employeeid ,date, startTime, endTime, task) VALUES ("+shiftid+","+ + +shiftid+","+ "'" + date+ "'" + "," + startTime + "," + endTime +","+ "'" + task + "'" + ");";
+            String sql = "INSERT INTO sep2.shift (shiftid ,employeeid ,date, startTime, endTime, task) VALUES ("+shiftid+","+ + +shiftid+","+ "'" + date+ "'" + "," + "'" + startTime + "'" + "," + "'" + endTime + "'" +","+ "'" + task + "'" + ");";
             stmt.execute(sql);
         }
 

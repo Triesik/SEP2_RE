@@ -2,12 +2,12 @@ package domain.mediator.shift;
 
 
 
+import domain.model.Date.Date;
+import domain.model.shift.Shift;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
-
-import domain.model.shift.*;
-import domain.model.Date.Date;
 
 public class ShiftManager implements ShiftManagerInterface {
 
@@ -21,8 +21,9 @@ public class ShiftManager implements ShiftManagerInterface {
 
     }
 
-    public void assignShift(int shiftId, int employeeId, String date, int startTime, int endTime, String task) throws Exception
+    public void assignShift(int employeeId, String date, String startTime, String endTime, String task) throws Exception
     {
+        int shiftId = employeeId + 5;
 
         database.assignShift(shiftId, employeeId, date, startTime, endTime, task);
     }
