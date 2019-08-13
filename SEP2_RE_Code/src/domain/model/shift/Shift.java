@@ -5,11 +5,11 @@ public class Shift implements java.io.Serializable {
     private int shiftId;
     private int employeeId;
     private String date;
-    private int startTime;
-    private int endTime;
+    private String startTime;
+    private String endTime;
     String task;
 
-    public Shift(int employeeId,String date, int startTime, int endTime, String task)
+    public Shift(int employeeId,String date, String startTime, String endTime, String task)
     {
         this.date = date;
         this.employeeId = employeeId;
@@ -35,11 +35,11 @@ public class Shift implements java.io.Serializable {
 
 
 
-    public void setStartTime(int startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public void setEndTime(int endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -55,11 +55,11 @@ public class Shift implements java.io.Serializable {
     }
 
 
-    public int getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public int getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 

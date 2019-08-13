@@ -55,7 +55,8 @@ public class ShiftManager implements ShiftManagerInterface {
                 // Retrieve by column name
                 String task = rs.getString("task");
                 int employeeid = rs.getInt("employeeid");
-                int starttime = rs.getInt("starttime");
+                String starttime = rs.getString("starttime");
+                String endtime = rs.getString("endtime");
                 String shiftdate = rs.getString("date");
 
                 // Setting the values
@@ -63,6 +64,7 @@ public class ShiftManager implements ShiftManagerInterface {
                 shift.setTask(task);
                 shift.setemployeeId(employeeid);
                 shift.setStartTime(starttime);
+                shift.setEndTime(endtime);
                 shift.setDate(shiftdate);
                 System.out.print(shift.getEmployeeId() + " ");
                 list.add(shift);
