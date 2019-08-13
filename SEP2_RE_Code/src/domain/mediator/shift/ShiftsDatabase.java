@@ -28,7 +28,7 @@ public class ShiftsDatabase {
         {
             Statement stmt = null;
             stmt = conn.createStatement();
-            String sql = "INSERT INTO sep2.shift (shiftid ,employeeid ,date, startTime, endTime, task) VALUES ("+shiftid+","+ + +shiftid+","+ "'" + date+ "'" + "," + "'" + startTime + "'" + "," + "'" + endTime + "'" +","+ "'" + task + "'" + ");";
+            String sql = "INSERT INTO sep2.shift (shiftid ,employeeid ,date, startTime, endTime, task) VALUES ("+shiftid+","+ + +employeeId+","+ "'" + date+ "'" + "," + "'" + startTime + "'" + "," + "'" + endTime + "'" +","+ "'" + task + "'" + ");";
             stmt.execute(sql);
         }
 
