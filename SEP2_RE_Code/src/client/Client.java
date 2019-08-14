@@ -22,7 +22,7 @@ public class Client {
 
     }
 
-    public void addEmployee(int employeeId, String firstName, String lastName, String email, String userType) throws Exception {
+    public void addEmployee(String firstName, String lastName, String email, String userType) throws Exception {
 
 
         EmployeeManagerInterface stub = (EmployeeManagerInterface) Naming.lookup("rmi://localhost:1097/addEmployee");

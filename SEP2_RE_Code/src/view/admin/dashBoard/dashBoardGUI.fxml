@@ -11,8 +11,8 @@
 
 <AnchorPane prefHeight="730.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.admin.dashBoard.dashBoardGUI">
    <children>
-      <Button layoutX="155.0" layoutY="646.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="148.0" text="Check in" />
-      <Button layoutX="454.0" layoutY="646.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="148.0" text="Check out" />
+      <Button fx:id="checkInBtn" layoutX="155.0" layoutY="646.0" mnemonicParsing="false" onAction="#checkInBtnPressed" prefHeight="55.0" prefWidth="148.0" text="Check in" />
+      <Button fx:id="checkOutIn" layoutX="454.0" layoutY="646.0" mnemonicParsing="false" onAction="#checkOutBtnPressed" prefHeight="55.0" prefWidth="148.0" text="Check out" />
       <GridPane fx:id="weekGridpane" gridLinesVisible="true" layoutX="24.0" layoutY="32.0" prefHeight="596.0" prefWidth="703.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -27,13 +27,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextArea fx:id="monTextField" prefHeight="200.0" prefWidth="200.0" />
-            <TextArea fx:id="tuesTextField" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-            <TextArea fx:id="wedTextField" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
-            <TextArea fx:id="thursTextField" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
-            <TextArea fx:id="friTextField" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" />
-            <TextArea fx:id="satTextField" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" />
-            <TextArea fx:id="sunTextField" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" />
+            <TextArea fx:id="monTextField" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" />
+            <TextArea fx:id="tuesTextField" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+            <TextArea fx:id="wedTextField" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+            <TextArea fx:id="thursTextField" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
+            <TextArea fx:id="friTextField" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" />
+            <TextArea fx:id="satTextField" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" />
+            <TextArea fx:id="sunTextField" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" />
          </children>
       </GridPane>
       <Label layoutX="50.0" layoutY="6.0" text="Mon">
@@ -71,5 +71,7 @@
             <Font size="22.0" />
          </font>
       </Label>
+      <Label layoutX="24.0" layoutY="646.0" text="STATUS" />
+      <Label fx:id="statusLabel" layoutX="24.0" layoutY="674.0" />
    </children>
 </AnchorPane>

@@ -4,7 +4,9 @@ import client.Client;
 import controller.admin.dashBoardController;
 import domain.model.loggedInEmployee.currentEmployee;
 import domain.model.shift.Shift;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -25,6 +27,7 @@ public class dashBoardGUI implements dashBoardView {
     public TextArea satTextField;
     public TextArea sunTextField;
     public GridPane weekGridpane;
+    public Label statusLabel;
 
     public dashBoardGUI() throws Exception {
         client = new Client();
@@ -35,6 +38,11 @@ public class dashBoardGUI implements dashBoardView {
 
     @FXML
     public void initialize() throws Exception {
+        if(client.getStatus(currentEmployee.getId())) {
+            statusLabel.setText("Checked in");
+        } else {
+            statusLabel.setText("Checked out");
+        }
         System.out.println("Started writing shifts");
         ArrayList<Shift> shifts = client.getWeekPlan(currentEmployee.getId(), Calendar.getInstance());
         for (int i = 0; i < shifts.size(); i++) {
@@ -66,7 +74,13 @@ public class dashBoardGUI implements dashBoardView {
     }
 
 
+    public void checkInBtnPressed(ActionEvent actionEvent) throws Exception {
+        statusLabel.setText("Checked in");
+        client.checkIn(currentEmployee.getId());
+    }
 
-
-
+    public void checkOutBtnPressed(ActionEvent actionEvent) throws Exception {
+        statusLabel.setText("Checked out");
+        client.checkOut(currentEmployee.getId());
+    }
 }

@@ -23,9 +23,9 @@ public class addUserController {
       System.out.println("Button pressed from controller");
       String[] data = view.getTextFieldValues();
       if (view.getCheckedValue().equals("admin")) {
-         client.addEmployee(Integer.parseInt(data[0]), data[1], data[2], data[3], view.getCheckedValue());
+         client.addEmployee(data[0], data[1], data[2], view.getCheckedValue());
       } else {
-         client.addEmployee(Integer.parseInt(data[0]), data[1], data[2], data[3], view.getCheckedValue());
+         client.addEmployee(data[0], data[1], data[2], view.getCheckedValue());
       }
 
       view.clearInput();

@@ -21,6 +21,7 @@ public class EmployeeManager implements EmployeeManagerInterface {
 
     public void addEmployee(String firstName, String lastName, String email, String userType) throws Exception
     {
+
         String password = generatePassword();
         int employeeId = firstName.length() + userType.length();
 

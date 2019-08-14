@@ -12,7 +12,6 @@ public class addUserGUI implements addUserView {
     public Button btnAddUser;
     private addUserController addUserController;
     public CheckBox tickMakeAsAdmin;
-    public TextField txtCPR;
     public TextField txtFirstName;
     public TextField txtLastName;
     public TextField txtEmail;
@@ -37,12 +36,11 @@ public class addUserGUI implements addUserView {
     // Gets the values of the text boxes from the GUI
     @Override
     public String[] getTextFieldValues() {
-        String CPR = txtCPR.getText();
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
         String email = txtEmail.getText();
 
-        return new String[]{CPR, firstName, lastName, email};
+        return new String[]{firstName, lastName, email};
     }
 
     // Gets whether or not the admin checkbox is ticked
@@ -56,7 +54,6 @@ public class addUserGUI implements addUserView {
 
     // Clears inputs
     public void clearInput() {
-        txtCPR.setText("");
         txtFirstName.setText("");
         txtLastName.setText("");
         txtEmail.setText("");
