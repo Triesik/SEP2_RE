@@ -15,7 +15,7 @@ public class ShiftsDatabase {
             try {
                 conn = DriverManager
                         .getConnection("jdbc:postgresql://localhost:5432/company",
-                                "postgres", "4265");
+                                "root", "root");
                 System.out.println("Opened database successfully");
             } catch (Exception e) {
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -26,7 +26,7 @@ public class ShiftsDatabase {
 
         public void assignShift(int shiftid, int employeeId, String date, String startTime, String endTime, String task) throws Exception
         {
-            Statement stmt = null;
+            Statement stmt;
             stmt = conn.createStatement();
             String sql = "INSERT INTO sep2.shift (shiftid ,employeeid ,date, startTime, endTime, task) VALUES ("+shiftid+","+ + +employeeId+","+ "'" + date+ "'" + "," + "'" + startTime + "'" + "," + "'" + endTime + "'" +","+ "'" + task + "'" + ");";
             stmt.execute(sql);
@@ -34,7 +34,7 @@ public class ShiftsDatabase {
 
         public void removeShift(int shiftId) throws Exception
         {
-            Statement stmt = null;
+            Statement stmt;
             stmt = conn.createStatement();
             String sql = "DELETE FROM sep2.shift where (shiftid) = "+shiftId+"";
             stmt.execute(sql);
@@ -42,7 +42,7 @@ public class ShiftsDatabase {
 
         public void editShift(int shiftId) throws Exception
         {
-            Statement stmt = null;
+            Statement stmt;
             stmt = conn.createStatement();
             String sql = "";
             stmt.execute(sql);
@@ -50,13 +50,33 @@ public class ShiftsDatabase {
 
         public ResultSet getWeekPlan(int employeeId, String date) throws Exception
         {
-            Statement stmt = null;
+            Statement stmt;
             stmt = conn.createStatement();
             String sql = "SELECT * from sep2.shift WHERE date = '" + date + "'" + "and employeeId = " + employeeId;
             ResultSet rs = stmt.executeQuery(sql);
             return rs;
-
         }
+
+        public ResultSet getShiftList() throws Exception
+        {
+            Statement stmt;
+            stmt = conn.createStatement();
+            String sql = "SELECT * from sep2.shift";
+            ResultSet rs = stmt.executeQuery(sql);
+            return rs;
+        }
+        public ResultSet getId(int id) throws Exception
+        {
+            Statement stmt;
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM sep2.shift where shiftid = '" + id + "'";
+            ResultSet rs = stmt.executeQuery(sql);
+            return rs;
+    }
+
+
+
+
 
     }
 

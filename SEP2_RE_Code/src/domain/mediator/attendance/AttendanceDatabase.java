@@ -15,7 +15,7 @@ public class AttendanceDatabase {
         try {
             conn = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/company",
-                            "postgres", "4265");
+                            "root", "root");
             System.out.println("Opened database successfully");
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -28,7 +28,7 @@ public class AttendanceDatabase {
     {
         Statement stmt = null;
         stmt = conn.createStatement();
-        String sql = "INSERT INTO sep2.attendance (employeeid ,shiftid, startdate, starttime) VALUES ( "+employeeId+","+ "'" + shiftId + "'" + ","+"'" + startDate +"'" + ","+"'" + startTime+ "'" + ");";
+        String sql = "INSERT INTO sep2.attendance (employeeid ,attendanceid, startdate, starttime) VALUES ( "+employeeId+","+ "'" + shiftId + "'" + ","+"'" + startDate +"'" + ","+"'" + startTime+ "'" + ");";
         stmt.execute(sql);
     }
 
@@ -36,7 +36,7 @@ public class AttendanceDatabase {
     {
         Statement stmt = null;
         stmt = conn.createStatement();
-        String sql = "UPDATE sep2.attendance SET enddate = " + "'" + endDate + "'" + ","  + "endtime = " + "'" + endTime + "'" + " WHERE shiftid = "+ "'" + shiftId + "'";
+        String sql = "UPDATE sep2.attendance SET enddate = " + "'" + endDate + "'" + ","  + "endtime = " + "'" + endTime + "'" + " WHERE attendanceid = "+ "'" + shiftId + "'";
         stmt.execute(sql);
     }
 
@@ -57,7 +57,7 @@ public class AttendanceDatabase {
 
         Statement stmt = null;
         stmt = conn.createStatement();
-        String sql = "SELECT status FROM sep2.employee where (employeeid) = "+employeeId+";";
+        String sql = "SELECT status FROM sep2.employeestatus where (employeeid) = "+employeeId+";";
         ResultSet rs = stmt.executeQuery(sql);
         return rs;
     }
@@ -66,12 +66,9 @@ public class AttendanceDatabase {
     {
         Statement stmt = null;
         stmt = conn.createStatement();
-        String sql = "UPDATE sep2.employee SET status = " + "'" + status + "'" + " WHERE employeeid = "+ employeeId +";";
+        String sql = "UPDATE sep2.employeestatus SET status = " + "'" + status + "'" + " WHERE (employeeid) = "+ employeeId +";";
         stmt.execute(sql);
-
-
     }
-
 
 
 }

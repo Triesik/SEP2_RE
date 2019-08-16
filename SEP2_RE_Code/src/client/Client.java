@@ -71,6 +71,13 @@ public class Client {
         stub.editEmployee(employeeId, firstName, lastName, email, password);
     }
 
+    public boolean checkEmail(String email) throws Exception
+    {
+        EmployeeManagerInterface stub = (EmployeeManagerInterface) Naming.lookup("rmi://localhost:1097/checkEmail");
+        boolean check = stub.checkEmail(email);
+        return check;
+    }
+
     //-------------------------------SHIFTS--PORT:1099----------------------------------------------------------------
 
     public void assignShift(int employeeId, String date, String startTime, String endTime, String task) throws Exception
@@ -84,6 +91,19 @@ public class Client {
         ShiftManagerInterface stub = (ShiftManagerInterface) Naming.lookup("rmi://localhost:1099/getWeekPlan");
         ArrayList<Shift> list = stub.getWeekPlan(employeeId, date);
         return list;
+    }
+
+    public ArrayList<Shift> getShiftList() throws Exception
+    {
+        ShiftManagerInterface stub = (ShiftManagerInterface) Naming.lookup("rmi://localhost:1099/getShiftList");
+        ArrayList<Shift> list = stub.getShiftList();
+        return list;
+    }
+
+    public void removeShift(int shiftId) throws Exception
+    {
+        ShiftManagerInterface stub = (ShiftManagerInterface) Naming.lookup("rmi://localhost:1099/removeShift");
+        stub.removeShift(shiftId);
     }
 
     //----------------------------ATTENDANCE--PORT:1098-----------------------------------------------------------------

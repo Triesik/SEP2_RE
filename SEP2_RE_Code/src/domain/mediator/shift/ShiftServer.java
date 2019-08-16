@@ -1,17 +1,14 @@
 package domain.mediator.shift;
 
 
-import domain.mediator.shift.*;
-
-
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Scanner;
 
-public class ShiftServer extends ShiftManager {
-    public ShiftServer() throws Exception {}
-    public static void main(String args[]) {
+public class ShiftServer extends ShiftManager implements Runnable {
+
+    @Override
+    public void run() {
 
         try {
             ShiftManager obj = new ShiftManager();
@@ -26,6 +23,7 @@ public class ShiftServer extends ShiftManager {
             registry.bind("removeShift", stub);
             registry.bind("editShift", stub);
             registry.bind("getWeekPlan", stub);
+            registry.bind("getShiftList", stub);
             System.out.print("server rdy");
 
         } catch(Exception e)
@@ -35,15 +33,5 @@ public class ShiftServer extends ShiftManager {
 
         }
 
-
-        Scanner input = new Scanner(System.in);
-        input.nextLine();
-
     }
-
-
-
-
-
-
 }

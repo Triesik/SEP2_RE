@@ -14,5 +14,6 @@ public interface EmployeeManagerInterface extends Remote {
     boolean isAdmin(int employeeId) throws Exception;
     Employee getOneEmployee(int employeeId) throws Exception;
     void editEmployee(int employeeId, String firstName, String lastName, String email, String password) throws Exception;
+    boolean checkEmail(String email) throws Exception;
 
 }

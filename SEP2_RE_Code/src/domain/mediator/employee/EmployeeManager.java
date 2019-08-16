@@ -22,11 +22,16 @@ public class EmployeeManager implements EmployeeManagerInterface {
     public void addEmployee(String firstName, String lastName, String email, String userType) throws Exception
     {
 
+        Random rand = new Random();
+        int employeeid = rand.nextInt(999);
         String password = generatePassword();
-        int employeeId = firstName.length() + userType.length();
+        while(checkId(employeeid) == false)
+        {
+            employeeid = rand.nextInt(999);
+        }
 
 
-        database.addEmployee(employeeId, firstName, lastName, email, password, userType);
+        database.addEmployee(employeeid, firstName, lastName, email, password, userType);
     }
 
     public void removeEmployee(int id) throws Exception
@@ -39,13 +44,11 @@ public class EmployeeManager implements EmployeeManagerInterface {
         ArrayList<Employee> list = new ArrayList<>();
         ResultSet rs = database.getEmployees();
         while (rs.next()) {
-            // Retrieve by column name
             int employeeId = rs.getInt("employeeid");
             String firstName = rs.getString("firstname");
             String lastName = rs.getString("lastname");
             String email = rs.getString(("email"));
 
-            // Setting the values
             Employee employee = new Employee();
             employee.setFirstName(firstName);
             employee.setLastName(lastName);
@@ -123,6 +126,32 @@ public class EmployeeManager implements EmployeeManagerInterface {
     {
         database.editEmployee(employeeId, firstName, lastName, email, password);
     }
+
+    public boolean checkEmail(String email)
+    {
+        try {
+            ResultSet rs = database.getEmail(email);
+            rs.next();
+            String mail = rs.getString("email");
+        } catch (Exception e)
+        {
+            return false;
+        }
+    return true;
+    }
+
+    public boolean checkId(int id)
+    {
+        try {
+            ResultSet rs = database.getId(id);
+            rs.next();
+        } catch (Exception e)
+        {
+            return false;
+        }
+        return true;
+    }
+
 
 
 }

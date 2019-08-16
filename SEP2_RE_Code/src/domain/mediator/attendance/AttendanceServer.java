@@ -4,12 +4,10 @@ package domain.mediator.attendance;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Scanner;
 
-public class AttendanceServer extends AttendanceManager {
-    public AttendanceServer() throws Exception {}
-    public static void main(String args[]) {
+public class AttendanceServer extends AttendanceManager implements Runnable {
 
+    public void run() {
         try {
             AttendanceManager obj = new AttendanceManager();
 
@@ -32,15 +30,5 @@ public class AttendanceServer extends AttendanceManager {
 
         }
 
-
-        Scanner input = new Scanner(System.in);
-        input.nextLine();
-
     }
-
-
-
-
-
-
 }

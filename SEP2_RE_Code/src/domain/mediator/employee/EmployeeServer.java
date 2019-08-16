@@ -4,16 +4,14 @@ package domain.mediator.employee;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Scanner;
 
-public class EmployeeServer extends EmployeeManager {
-    public EmployeeServer() throws Exception {}
-    public static void main(String args[]) {
+public class EmployeeServer extends EmployeeManager implements Runnable {
+
+    @Override
+    public void run() {
 
         try {
             EmployeeManager obj = new EmployeeManager();
-
-
 
             Registry registry= LocateRegistry.createRegistry(1097);
             EmployeeManagerInterface stub = (EmployeeManagerInterface) UnicastRemoteObject.exportObject(obj, 1097);
@@ -26,6 +24,7 @@ public class EmployeeServer extends EmployeeManager {
             registry.bind("isAdmin", stub);
             registry.bind("getOneEmployee", stub);
             registry.bind("editEmployee", stub);
+            registry.bind("checkEmail", stub);
             System.out.print("server rdy");
 
         } catch(Exception e)
@@ -36,14 +35,5 @@ public class EmployeeServer extends EmployeeManager {
         }
 
 
-        Scanner input = new Scanner(System.in);
-        input.nextLine();
-
     }
-
-
-
-
-
-
 }
