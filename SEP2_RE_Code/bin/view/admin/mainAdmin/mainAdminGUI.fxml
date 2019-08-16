@@ -12,18 +12,11 @@
           <Tab fx:id="tabMainView" text="Dashboard">
                 <fx:include fx:id="embeddedDashBoard" source="../dashBoard/dashBoardGUI.fxml" />
           </Tab>
-            <Tab fx:id="tabEditUser" text="Edit User">
-                <fx:include fx:id="embeddedEditUser" source="../editUser/editUserGUI.fxml" />
-            </Tab>
-            <Tab fx:id="tabRemoveUser" text="Remove User">
-                <fx:include fx:id="embeddedRemoveUser" source="../removeUser/removeUserGUI.fxml" />
-            </Tab>
-            <Tab fx:id="tabAssignShift" text="Assign Shift">
-                <fx:include  fx:id="embeddedAssignShift" source="../assignShift/assignShiftGUI.fxml"/>
-            </Tab>
-
             <Tab fx:id="tabManageEmployee" text="Manage Employee">
                 <fx:include  fx:id="embeddedManageEmployee" source="../manageEmployee/manageEmployeeGUI.fxml"/>
+            </Tab>
+            <Tab fx:id="tabViewShifts" text="View Shifts">
+                <fx:include  fx:id="embeddedViewShifts" source="../viewShifts/viewShiftsGUI.fxml"/>
             </Tab>
 
         </tabs>

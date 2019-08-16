@@ -1,64 +1,47 @@
--- SCHEMA: SEP2
+create database company;
 
--- DROP SCHEMA "SEP2" ;
+create table sep2.employee
+(
+    employeeid integer not null
+        constraint employee_pkey
+            primary key,
+    firstname  varchar(255),
+    lastname   varchar(255),
+    email      varchar(255),
+    password   varchar(255),
+    usertype   varchar(255)
+);
 
-CREATE SCHEMA "SEP2"
-    AUTHORIZATION postgres;
-	create table Users (
-	               cpr_no int NOT Null, 
-				   LastName varchar(255) NOT NULL,
-                   FirstName varchar(255),
-				   Email varchar(255),
-				   mobile_no int,
-				   user_type char(1) Default 'E',
-				   primary key (cpr_no)
-				  );
-				  create table Shift (
-	               shift_id SERIAL  , 
-				   company_name varchar(255) NOT NULL,
-                   description  varchar(255),
-				   shift_name varchar(255),
-	PRIMARY KEY (shift_id)
-				  );
-				  
-create table DateTime( datetime_id SERIAL primary key ,
-					  datetime timestamp);
-					  
-					  
-					  
-create table Shift_management (
-	               shiftmanag_id SERIAL  , 
-				   datetime_id int ,
-                   cpr_no  int,
-				   shift_id int ,
-	PRIMARY KEY (shiftmanag_id),
-	FOREIGN KEY (datetime_id) REFERENCES DateTime (datetime_id),
-	FOREIGN KEY (cpr_no) REFERENCES Users (cpr_no),
-	FOREIGN KEY (shift_id) REFERENCES Shift (shift_id)
-				  );
-				  
-				  create table checkin_checkout (
-	               check_id SERIAL  , 
-                   cpr_no  int,
-				   checkin timestamp ,
-					  checkout timestamp, 
-	PRIMARY KEY (check_id),
-	FOREIGN KEY (cpr_no) REFERENCES Users (cpr_no)
-				  );
-				  
-				  
-				  create table workdays (
-				  Monday char(1),
-Tuesday char(1),
-Wednesday char(1),
-Thursday char(1),
-Friday char(1),
-Saturday char(1),
-Sunday char(1),
-cpr_no int,
-primary key(cpr_no),
-	FOREIGN KEY (cpr_no) REFERENCES Users (cpr_no)
-					  );
-				  
-				  
-					  
+create table sep2.shift
+(
+    shiftid    integer not null
+        constraint shift_pk
+            primary key,
+    employeeid integer,
+    starttime  varchar(5),
+    endtime    varchar(5),
+    task       varchar(255),
+    date       date
+);
+
+create table sep2.attendance
+(
+    attendanceid varchar(30),
+    employeeid   integer
+        constraint attendance_employee_employeeid_fk
+            references sep2.employee,
+    startdate    varchar(255),
+    enddate      varchar(255),
+    starttime    varchar(10),
+    endtime      varchar(10)
+);
+
+create table sep2.employeestatus
+(
+    employeeid integer
+        constraint employeestatus_employee_employeeid_fk
+            references sep2.employee,
+    status     varchar(25)
+);
+
+

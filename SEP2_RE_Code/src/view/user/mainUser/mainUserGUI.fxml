@@ -10,7 +10,7 @@
         <TabPane layoutX="21.0" layoutY="13.0" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab fx:id="tabMainView" text="Dashboard">
-                   <fx:include fx:id="embeddedDashBoard" source="../dashBoard/dashBoardGUI.fxml" />
+                   <fx:include fx:id="embeddedDashBoard" source="../../admin/dashBoard/dashBoardGUI.fxml" />
                 </Tab>
             </tabs>
         </TabPane>

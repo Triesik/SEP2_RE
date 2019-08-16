@@ -4,14 +4,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="manageEmployeePane" onMouseEntered="#onMouseEntered" prefHeight="730.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.admin.manageEmployee.manageEmployeeGUI">
+<AnchorPane fx:id="manageEmployeePane" onMouseEntered="#onMouseEntered" prefHeight="730.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.admin.manageEmployee.manageEmployeeGUI">
    <children>
       <TableView fx:id="tbData" layoutX="18.0" layoutY="17.0" prefHeight="441.0" prefWidth="714.0">
       </TableView>
-      <Button fx:id="assignShiftBtn" layoutX="448.0" layoutY="659.0" mnemonicParsing="false" onAction="#assignShiftBtnPressed"  prefHeight="47.0" prefWidth="271.0" text="Assign Shift" />
-      <Button fx:id="removeEmployeeBtn" layoutX="448.0" layoutY="597.0" mnemonicParsing="false" onAction="#removeEmployeeBtnPressed"  prefHeight="47.0" prefWidth="271.0" text="Remove Employee" />
-      <Button fx:id="editEmployeeBtn" layoutX="448.0" layoutY="536.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="271.0" text="Edit Employee" />
-      <Button fx:id="addEmployeeBtn" layoutX="448.0" layoutY="474.0" mnemonicParsing="false" onAction="#addEmployeeBtnPressed" prefHeight="47.0" prefWidth="271.0" text="Add Employee" />
-      <Button fx:id="loadEmployeesBtn" layoutX="161.0" layoutY="474.0" mnemonicParsing="false" onAction="#loadEmployeesBtnPressed" prefHeight="47.0" prefWidth="271.0" text="Load Employees Test" />
+      <Button fx:id="assignShiftBtn" layoutX="18.0" layoutY="587.0" mnemonicParsing="false" onAction="#assignShiftBtnPressed" prefHeight="47.0" prefWidth="271.0" text="Assign Shift" />
+      <Button fx:id="removeEmployeeBtn" layoutX="18.0" layoutY="525.0" mnemonicParsing="false" onAction="#removeEmployeeBtnPressed" prefHeight="47.0" prefWidth="271.0" text="Remove Employee" />
+      <Button fx:id="editEmployeeBtn" layoutX="461.0" layoutY="587.0" mnemonicParsing="false" onAction="#editEmployeeBtnPressed" prefHeight="47.0" prefWidth="271.0" text="Edit Employee" />
+      <Button fx:id="addEmployeeBtn" layoutX="461.0" layoutY="525.0" mnemonicParsing="false" onAction="#addEmployeeBtnPressed" prefHeight="47.0" prefWidth="271.0" text="Add Employee" />
    </children>
 </AnchorPane>

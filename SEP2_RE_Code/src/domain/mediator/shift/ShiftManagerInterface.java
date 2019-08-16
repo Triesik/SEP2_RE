@@ -12,5 +12,6 @@ public interface ShiftManagerInterface extends Remote {
     void removeShift(int shiftId) throws Exception;
     void editShift(int shiftId) throws Exception;
     ArrayList<Shift> getWeekPlan(int employeeId, Calendar date) throws Exception;
+    ArrayList getShiftList() throws Exception;
 
 }

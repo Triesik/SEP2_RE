@@ -25,11 +25,13 @@ public class AttendanceManager implements AttendanceManagerInterface {
         TimeUnit.SECONDS.sleep(1);
         date = new Date(Calendar.getInstance());
 
-        String startDate = date.toString();
-        String startTime = date.timeToString();
-        String shiftId = (Integer.toString(date.getDay()) + Integer.toString(date.getMonth()) + Integer.toString(date.getYear()) + Integer.toString(date.getHour()) + Integer.toString(date.getMinute()) + Integer.toString(date.getMinute()) + employeeId);
-        database.setStatus(employeeId, shiftId);
-        database.checkIn(employeeId, shiftId, startDate, startTime);
+        if(getStatus(employeeId) == false) {
+            String startDate = date.toString();
+            String startTime = date.timeToString();
+            String shiftId = (Integer.toString(date.getDay()) + Integer.toString(date.getMonth()) + Integer.toString(date.getYear()) + Integer.toString(date.getHour()) + Integer.toString(date.getMinute()) + Integer.toString(date.getMinute()) + employeeId);
+            database.setStatus(employeeId, shiftId);
+            database.checkIn(employeeId, shiftId, startDate, startTime);
+        }
     }
 
     public void checkOut(int employeeId) throws Exception

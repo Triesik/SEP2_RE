@@ -3,6 +3,7 @@ package view.admin.manageEmployee;
 import client.Client;
 import controller.admin.manageEmployeeController;
 import domain.model.employee.Employee;
+import domain.model.employeeMenuSelection.employeeMenuSelection;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -40,7 +41,6 @@ public class manageEmployeeGUI implements manageEmployeeView {
     public Button removeEmployeeBtn;
     public Button editEmployeeBtn;
     public Button addEmployeeBtn;
-    public Button loadEmployeesBtn;
     public AnchorPane manageEmployeePane;
 
 
@@ -127,6 +127,7 @@ public class manageEmployeeGUI implements manageEmployeeView {
     }
 
     public void assignShiftBtnPressed(ActionEvent actionEvent) throws IOException {
+        employeeMenuSelection.setID(tbData.getSelectionModel().getSelectedItem().getEmployeeId());
         Parent root;
         root = FXMLLoader.load(getClass().getResource("/view/admin/assignShift/assignShiftGUI.fxml"));
         Scene scene = new Scene(root);
@@ -135,5 +136,16 @@ public class manageEmployeeGUI implements manageEmployeeView {
         primaryStage.getIcons().add(new Image("file:images/applicationIcon.png"));
         primaryStage.show();
 
+    }
+
+    public void editEmployeeBtnPressed(ActionEvent actionEvent) throws IOException {
+        employeeMenuSelection.setID(tbData.getSelectionModel().getSelectedItem().getEmployeeId());
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("/view/admin/editUser/editUserGUI.fxml"));
+        Scene scene = new Scene(root);
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image("file:images/applicationIcon.png"));
+        primaryStage.show();
     }
 }
