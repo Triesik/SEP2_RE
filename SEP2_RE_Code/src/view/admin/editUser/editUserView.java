@@ -1,12 +1,15 @@
 package view.admin.editUser;
 
+import domain.model.employee.Employee;
+
 public interface editUserView {
 
-    public String getCPR();
-    public String getFirstName();
-    public String getLastName();
-    public String getMobileNumber();
-    public String getEmail();
-    public String getPassword();
+    String getId();
+    String getFirstName();
+    String getLastName();
+    String getEmail();
+    String getPassword();
+    void insertEmployeeValues(Employee employee);
+    void closeWindow();
 
 }

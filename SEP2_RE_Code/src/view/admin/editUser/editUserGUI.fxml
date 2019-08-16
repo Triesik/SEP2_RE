@@ -6,21 +6,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="570.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.admin.editUser.editUserGUI">
+<AnchorPane prefHeight="570.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.admin.editUser.editUserGUI">
     <children>
-        <TextField fx:id="txtCPR" layoutX="149.0" layoutY="74.0" />
+        <TextField fx:id="txtId" layoutX="149.0" layoutY="74.0" />
         <TextField fx:id="txtFirstName" layoutX="149.0" layoutY="127.0" />
         <TextField fx:id="txtLastName" layoutX="149.0" layoutY="179.0" />
-        <TextField fx:id="txtMobileNumber" layoutX="149.0" layoutY="232.0" />
-        <Label layoutX="33.0" layoutY="79.0" text="CPR" />
+        <Label layoutX="33.0" layoutY="79.0" text="ID" />
         <Label layoutX="28.0" layoutY="132.0" text="First Name" />
         <Label layoutX="29.0" layoutY="184.0" text="Last Name" />
-        <Label layoutX="28.0" layoutY="237.0" text="Mobile Number" />
-        <Label layoutX="28.0" layoutY="291.0" text="Email" />
-        <Label layoutX="28.0" layoutY="344.0" text="Password" />
-        <TextField fx:id="txtEmail" layoutX="149.0" layoutY="286.0" />
-        <TextField fx:id="txtPassword" layoutX="149.0" layoutY="339.0" />
-        <Button fx:id="btnAddUser" layoutX="188.0" layoutY="448.0" mnemonicParsing="false" onAction="#editUserPressed" prefHeight="52.0" prefWidth="88.0" text="Edit" />
-        <CheckBox fx:id="tickMakeAsAdmin" layoutX="26.0" layoutY="401.0" mnemonicParsing="false" text="Is an admin" />
+        <Label layoutX="28.0" layoutY="235.0" text="Email" />
+        <Label layoutX="28.0" layoutY="288.0" text="Password" />
+        <TextField fx:id="txtEmail" layoutX="149.0" layoutY="230.0" />
+        <TextField fx:id="txtPassword" layoutX="149.0" layoutY="283.0" />
+        <Button fx:id="btnEditUser" layoutX="188.0" layoutY="448.0" mnemonicParsing="false" onAction="#editUserPressed" prefHeight="52.0" prefWidth="88.0" text="Edit" />
     </children>
 </AnchorPane>

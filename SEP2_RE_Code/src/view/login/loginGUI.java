@@ -14,7 +14,7 @@ public class loginGUI implements loginView {
     private controller.login.loginController loginController;
     private Client client;
     @FXML
-    private TextField txtCPR;
+    private TextField txtId;
     @FXML
     private TextField txtPassword;
 
@@ -25,7 +25,7 @@ public class loginGUI implements loginView {
 
 
     public String getCPR() {
-        return txtCPR.getText();
+        return txtId.getText();
     }
 
     public String getPassword() {
@@ -33,7 +33,7 @@ public class loginGUI implements loginView {
     }
 
     public void clearInput() {
-        txtCPR.setText("");
+        txtId.setText("");
         txtPassword.setText("");
     }
 
@@ -48,11 +48,11 @@ public class loginGUI implements loginView {
     }
 
     public void loginBtnPressed(ActionEvent actionEvent) throws Exception {
-        loginController.loginBtnPressed(Integer.parseInt(txtCPR.getText()), txtPassword.getText());
+        loginController.loginBtnPressed(Integer.parseInt(txtId.getText()), txtPassword.getText());
     }
 
     public void onEnter(ActionEvent actionEvent) throws Exception {
-        loginController.loginBtnPressed(Integer.parseInt(txtCPR.getText()), txtPassword.getText());
+        loginController.loginBtnPressed(Integer.parseInt(txtId.getText()), txtPassword.getText());
     }
 }
 

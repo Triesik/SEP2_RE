@@ -12,6 +12,7 @@ module SEP2_RE {
     requires java.sql;
     requires java.rmi;
     requires java.desktop;
+    requires junit;
 
     exports main to javafx.graphics;
     exports controller.admin to javafx.fxml;
@@ -27,6 +28,7 @@ module SEP2_RE {
     exports domain.mediator.employee to java.rmi;
     exports domain.mediator.shift to java.rmi;
     exports view.admin.manageEmployee to javafx.fxml;
+    exports view.admin.viewShifts to javafx.fxml;
     exports domain.model.employee to javafx.fxml;
     exports client to javafx.fxml;
     exports domain.mediator.attendance to java.rmi;
@@ -44,7 +46,10 @@ module SEP2_RE {
     opens view.user.dashBoard to javafx.fxml;
     opens view.admin.assignShift to javafx.fxml;
     opens view.admin.manageEmployee to javafx.fxml;
+    opens view.admin.viewShifts to javafx.fxml;
     opens domain.model.employee to javafx.base;
+    opens domain.model.shift to javafx.base;
+    opens tests to junit;
 
 
 }

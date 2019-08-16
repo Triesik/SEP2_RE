@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="340.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.login.loginGUI">
+<AnchorPane prefHeight="340.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.login.loginGUI">
    <children>
-      <TextField fx:id="txtCPR" layoutX="114.0" layoutY="146.0" prefHeight="26.0" prefWidth="390.0" onAction="#onEnter" />
-      <TextField fx:id="txtPassword" layoutX="114.0" layoutY="200.0" prefHeight="26.0" prefWidth="390.0" onAction="#onEnter" />
-      <Label layoutX="42.0" layoutY="151.0" text="CPR" />
+      <TextField fx:id="txtId" layoutX="114.0" layoutY="146.0" onAction="#onEnter" prefHeight="26.0" prefWidth="390.0" />
+      <TextField fx:id="txtPassword" layoutX="114.0" layoutY="200.0" onAction="#onEnter" prefHeight="26.0" prefWidth="390.0" />
+      <Label layoutX="42.0" layoutY="151.0" text="ID" />
       <Label layoutX="24.0" layoutY="205.0" text="Password" />
       <Button fx:id="btnLogin" layoutX="406.0" layoutY="248.0" mnemonicParsing="false" onAction="#loginBtnPressed" prefHeight="41.0" prefWidth="98.0" text="Login" />
       <Label layoutX="117.0" layoutY="67.0" text="SEP Management System">

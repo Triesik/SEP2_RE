@@ -2,6 +2,7 @@ package view.admin.assignShift;
 
 import client.Client;
 import controller.admin.assignShiftController;
+import domain.model.employeeMenuSelection.employeeMenuSelection;
 import domain.model.loggedInEmployee.currentEmployee;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -13,7 +14,6 @@ public class assignShiftGUI implements assignShiftView {
     public DatePicker datePicker;
     public TextField startTimeTextField;
     public TextField endTimeTextField;
-    public TextField employeeIdTextField;
     public TextField taskTextField;
     public Button assignShiftBtn;
     private assignShiftController assignShiftController;
@@ -31,7 +31,7 @@ public class assignShiftGUI implements assignShiftView {
 
 
     public void assignShiftBtnPressed() throws Exception {
-        client.assignShift(Integer.parseInt(employeeIdTextField.getText()), datePicker.getValue().toString(), startTimeTextField.getText(), endTimeTextField.getText(), taskTextField.getText());
+        client.assignShift(employeeMenuSelection.getId(), datePicker.getValue().toString(), startTimeTextField.getText(), endTimeTextField.getText(), taskTextField.getText());
         System.out.println("button pressed");
         closeWindow();
     }
